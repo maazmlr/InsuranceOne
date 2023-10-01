@@ -1,0 +1,106 @@
+
+*{
+    margin: 0;
+    font-size: 16px;
+}
+.header-bg{
+    background-image: linear-gradient(to right, #90cadf,#0168eb );
+    height: 6rem !important;
+    border-radius: 0.2rem;
+    
+
+}
+.head-text{
+    font-size: 1.3rem !important;
+    margin-left: 2rem !important;
+    color:darkblue !important;
+}
+.head-text:hover{
+    background-color: #0168eb;
+    color: #90cadf !important;
+
+}
+.nav{
+    display: flex !important;
+    align-items: center !important;
+}
+.phone{
+    margin:0 0 0 10rem ;
+}
+
+
+
+/* ---------------------Partners----------- */
+
+.partners{
+    height: auto;
+    width: 100%;
+    background-color:azure;
+}
+.com-text{
+    text-align: center;
+    padding:2rem 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+    background: -webkit-linear-gradient(#7fb0c3, #3f76bd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.part-heading{
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: 700;
+}
+.part-desc,.sec1-desc{
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0 6rem;
+}
+
+/* --------slider--------- */
+
+.slider-pic{
+    height: 9rem;
+    object-fit: contain;
+    
+}
+.slider-holder{
+    padding: 3rem 9rem;
+}
+
+/* -------------home---------------- */
+.home-sec-1{
+    height: 40rem;
+    position: relative;
+}
+.sec1-head{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 2rem 0;
+}
+.card-holder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+}
+.car{
+    margin: 3rem 6rem;
+}
+.six-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+   *{
+    font-size: 8px;
+   }
+  }
+
+  @media (max-width:1000px) {
+    *{
+        font-size: 10px;
+    }
+  }
