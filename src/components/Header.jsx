@@ -33,7 +33,7 @@ function Header() {
                 Life Insurance 
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#link" className='head-text'>Contact US</Nav.Link>
+            <Nav.Link href="/contact" className='head-text'>Contact US</Nav.Link>
             <Nav.Link href="#link " className='head-text'>FAQ</Nav.Link>
 
           <div className='phone'>

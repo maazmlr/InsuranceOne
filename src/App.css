@@ -3,6 +3,16 @@
     margin: 0;
     font-size: 16px;
 }
+.color{
+    background: -webkit-linear-gradient(#0163ea, #00bcf9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.background{
+    background: -webkit-linear-gradient(#0162ea71, #00bbf96a);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
 .header-bg{
     background-image: linear-gradient(to right, #90cadf,#0168eb );
     height: 6rem !important;
@@ -93,14 +103,109 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-@media only screen and (max-width: 600px) {
-   *{
-    font-size: 8px;
-   }
-  }
 
-  @media (max-width:1000px) {
+  /* About us */
+
+
+.about{
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.form{
+    padding: 1rem 5rem;
+    border: 1px solid blue;
+}
+.form-btn{
+    padding: 0rem 1rem;
+    height: 2.5rem;
+    text-align: center;
+    background: -webkit-linear-gradient(#0162ea, #00bbf9) !important;
+}
+.form-btn:hover{
+    opacity: 0.8;
+}
+.about-form img{
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem 0;
+}
+.about-form h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.about-form p{
+    margin: 1rem 0;
+}
+.form-details{
+    display: flex;
+    margin: 5rem 2rem;
+}
+.form-details img{
+    width: 5rem;
+    height: 5rem;
+    margin: 0 2rem;
+}
+.form-details h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.form-details p{
+    font-size: 1.2rem;
+    margin: 0.2rem 0;
+}
+.reach-us{
+    font-weight: 500;
+    font-size: 3rem;
+}
+.reach-us p{
+    font-size: 1rem;
+    color: gray ;
+}
+
+/* ----------About us ------------ */
+
+.about-section-1{
+    width: auto;
+    height: 40rem;
+    background: #7fb0c3;
+}
+.h1-about{
+    display: inline-block;
+    margin: 2rem 10rem;
+    background: -webkit-linear-gradient(#0163ea, #00bcf9);
+    padding: 1rem 1rem;
+    color: whitesmoke;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 1rem;
+}
+.holder{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.count1 h1{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.count1 p{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
     *{
-        font-size: 10px;
+     font-size: 8px;
     }
-  }
+   }
+ 
+   @media (max-width:1000px) {
+     *{
+         font-size: 10px;
+     }
+   }
+ 

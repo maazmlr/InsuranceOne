@@ -8,8 +8,6 @@ const Slider = () => (
   dots={false}
   slidesToShow={4}
   >
-
-      
          <img src={partner1} alt="" className='slider-pic' />
          <img src={partner1} alt="" className='slider-pic' />
          <img src={partner1} alt="" className='slider-pic' />
