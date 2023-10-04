@@ -1,50 +1,42 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from "../assets/oneclick-white-logo.png"
-import HeaderContact from './ContactCard';
+import logo from '../assets/logo.png';
+import email from '../assets/emial.png';
+import phone from '../assets/phone.png';
+import Navbar from './navbar';
+
 
 function Header() {
-  return (
-    <Navbar expand="lg" className=" header-bg   ">
-      <Container >
-        <Navbar.Brand href="#home"><img src={logo} style={{height:"4rem"}} alt="" /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto nav" >
-            <Nav.Link href="#home" className='head-text'>Home</Nav.Link>
-            <NavDropdown className='head-text' title="Insurance" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Car Insurance</NavDropdown.Item>
-              <NavDropdown.Divider />
-
-              <NavDropdown.Item href="#action/3.2">
-                Bike Insurance
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-
-              <NavDropdown.Item href="#action/3.3">Health Insurance</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Travel Insurance 
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Life Insurance 
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="/contact" className='head-text'>Contact US</Nav.Link>
-            <Nav.Link href="#link " className='head-text'>FAQ</Nav.Link>
-
-          <div className='phone'>
-          <HeaderContact/>
-          </div>
-          </Nav>
-          
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+    return (
+        <div>
+            <div className='navbar-header'>
+                <div>
+                    <img src={logo} />
+                </div>
+                <div className='sub-navbar-header'>
+                    <div className='sub-sub-navbar-header'>
+                        <div>
+                            <img src={email} style={{ width: '2.5rem', margin: '1.5rem 0.5rem' }} />
+                        </div>
+                        <div>
+                            <h3 style={{margin:'1rem 0', fontSize:'1.3rem'}}>Email us</h3>
+                            <p style={{ marginTop: '-0.9rem' }}>info@theoneclickdigital.com</p>
+                        </div>
+                    </div>
+                    <div className='sub-sub-navbar-header'>
+                        <div>
+                            <img src={phone} style={{ width: '2.5rem', margin: '1.5rem 0.5rem' }} />
+                        </div>
+                        <div >
+                            <h3 style={{margin:'1rem 0', fontSize:'1.3rem'}}>UAN number</h3>
+                            <p style={{ marginTop: '-0.9rem' }}>+92 331 111 0375</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <Navbar />
+            </div>
+        </div>
+    )
 }
 
 export default Header;

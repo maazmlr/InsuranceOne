@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.0.0-alpha.2",
+    "@coreui/react": "^5.0.0-alpha.3",
     "@mui/icons-material": "^5.14.11",
     "@nextui-org/react": "^2.1.13",
     "antd": "^5.9.4",

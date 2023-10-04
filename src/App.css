@@ -8,7 +8,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.background{
+.background-color{
     background: -webkit-linear-gradient(#0162ea71, #00bbf96a);
     padding: 1rem;
     border-radius: 0.5rem;
@@ -38,7 +38,143 @@
     margin:0 0 0 10rem ;
 }
 
+   /* header*/
 
+   .navbar-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+  }
+  .sub-navbar-header{
+    display: flex;
+  }
+  .sub-sub-navbar-header{
+    display: flex;
+    margin: 0 2rem;
+  }
+  .img{
+    width: 1rem;
+  }
+  .navbar-header div img{
+    width: 7rem;
+    margin: 0.5rem 2rem 0 2rem;
+  }
+  .background{
+    background: linear-gradient(
+      to top right, 
+      #015fea, #00bcf9
+    );
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(
+      to top right, 
+      #015fea, #00bcf9
+    );
+    padding: 10px 80px;
+    height: 8vh;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.06);
+  }
+  #navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #navbar li{
+    list-style: none;
+    padding: 20px 20px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+  #navbar li a{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .hhh{
+    height: 1000px;
+    background-color: #015fea;
+  }
+  #navbar li a:hover{
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+  }
+  .line:hover:after{
+    content: "";
+    width: 50%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -4px;
+    left: 25px;
+  }
+  #mobile{
+    display: none;
+  }
+  #mobile i{
+    color: #fff;
+    align-items: center;
+  }
+  .btn-navbar a button{
+    background-color: #fff;
+    border: none;
+    padding: 0.4rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    margin-top: -2px;
+    color: #015fea;
+  }
+  .btn-navbar a button:hover{
+    color: #fff;
+  background-color: #015fea;
+  transition: 0.3s ease-in-out;
+  }
+  .bas{
+    display: none;
+  }
+  .dropdown li a{
+    color: black;
+  }
+  ul li ul.dropdown {
+    width: 15rem; /* Set width of the dropdown */
+    background: whitesmoke;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    margin-top: 20px;
+    left: 0;
+  }
+  ul li:hover ul.dropdown {
+    display: block; /* Display the dropdown */
+  }
+  ul li ul.dropdown li {
+    display: block;
+  }
+  .dropdown {
+    padding: 0;
+    list-style: none;
+    background-color: black;
+  }
+  .dropdown li {
+    display: inline-block;
+    position: relative;
+    line-height: 2px;
+    text-align: left;
+  }
+  .dropdown li a {
+    display: block;
+    padding: 2px 2px;
+    text-decoration: none;
+  }
+  .dropdown li a:hover {
+    color: black;
+  }
+  /* header end */
 
 /* ---------------------Partners----------- */
 
@@ -120,7 +256,7 @@
 }
 .form-btn{
     padding: 0rem 1rem;
-    height: 2.5rem;
+    height: 2.5 rem;
     text-align: center;
     background: -webkit-linear-gradient(#0162ea, #00bbf9) !important;
 }
@@ -197,9 +333,96 @@
     font-weight: 500;
 }
 
+/* ---------- Car Takaful ------------ */
+
+.car-takaful{
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.car-takaful div p{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.car-takaful div h3{
+    font-size: 1.5rem;
+    margin: 5px 0;
+    font-weight: 600;
+}
+.car-takaful div img{
+    width: 20rem;
+    margin: 0 auto;
+}
+.car-card{
+    background-image: url('./assets/Takaful/card.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.car-card p{
+    font-size: 1.5rem;
+}
+.car-card-c{
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    align-items: center;
+}
+.car-card-c div{
+    margin: 10px 5px;
+}
+
+.car-card:hover{
+    background-image: url('./assets/Takaful/vivid-blurred-colorful-wallpaper-background_58702-3832.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.3s ease-in-out;
+}
+.card-insurance{
+    text-align: center;
+    margin: 2px 8px 5px 8px;
+}
+.card-insurance-heading{
+    background: -webkit-linear-gradient(#0163ea, #00bcf9);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+
+}
+.card-insurance-text{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ---------- collapse ------------ */
+
+
+.collapse-button {
+    display: block;
+    width: 100%;
+  }
+  
+  .collapse-content.collapsed {
+    display: none;
+  }
+  
+  .collapsed-content.expanded {
+    display: block;
+  }
+  .collapse-btn{
+    background: -webkit-linear-gradient(#0163ea, #00bcf9);;
+  }
 @media only screen and (max-width: 600px) {
     *{
      font-size: 8px;
+    }
+    .car-card-c{
+        display: block;
+        text-align: center;
+        align-items: center;
     }
    }
  
@@ -208,4 +431,51 @@
          font-size: 10px;
      }
    }
+   @media screen and (max-width: 984px) {
+    .bas{
+      display: block;
+    }
+    .navbar-header, .btn-navbar{
+      display: none;
+    }
+    #navbar{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: fixed;
+      top: 0px;
+      left: -300px;
+      width: 300px;
+      height: 100vh;
+      background: #fff;
+      padding: 40px 0 0 10px;
+      transition: 0.3s ease-in-out;
+      z-index: 99999;
+    }
+    #navbar.active{
+      left: 0px;
+    }
+    #navbar li a{
+      color: black;
+      
+    }
+    #mobile{
+      display: block;
+    }
+    #navbar li{
+      margin-bottom: 25px;
+      padding: 10px 20px;
+    }
+    ul li ul.dropdown{
+      margin-top: 10px;
+    }
+    .dropdown li a{
+      margin: 0;
+    }
+    #mobile i{
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
  

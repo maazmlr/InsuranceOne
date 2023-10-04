@@ -8,6 +8,9 @@ import Home from './components/Home/Home';
 import Promotions from './components/Home/Promotions';
 import Contact from './components/Contact/contact';
 import About from './components/about/about';
+import CAR from './components/Takaful_&_Insurence/Car Takaful/car';
+import BIKE from './components/Takaful_&_Insurence/Car Takaful/bike/bike';
+import LIFE from './components/Takaful_&_Insurence/Car Takaful/life/life';
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
     <Route path='/' element={<Home/>} />
     <Route path='/contact' element={<Contact/>} />
     <Route path='/about' element={<About/>} />
+    <Route path='/car' element={<CAR/>} />
+    <Route path='/bike' element={<BIKE/>} />
+    <Route path='/life' element={<LIFE/>} />   
     </Route >
 
   ))
