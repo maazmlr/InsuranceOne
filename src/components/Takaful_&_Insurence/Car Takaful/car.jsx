@@ -14,38 +14,38 @@ function CAR() {
                 <div>
                     <p>Instant Car Insurance Quotes from</p>
                     <h3>Top Insurance Providers in Pakistan</h3>
-                    <img src={car} />
+                    <img src={car} style={{width: '25rem'}}/>
                     <div className='car-card-c'>
-                        <div>
-                            <Card className='car-card'>
-                                <Card.Body className='car-card-body'>
-                                    <img src={best} style={{ width: '5rem' }} />
-                                    <Card.Text style={{ fontSize: '0.9rem', fontWeight: '700' }}>
-                                        Best rates guarantee
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className='car-card'>
-                                <Card.Body>
-                                    <img src={income} style={{ width: '5rem' }} />
-                                    <Card.Text className='card-text' style={{ fontSize: '0.9rem', fontWeight: '700' }}>
-                                        Free of cost service
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                    <div>
+                        <Card className='car-card'>
+                            <Card.Body className='car-card-body'>
+                                <img src={best} style={{width: '5rem'}}/>
+                                <Card.Text style={{fontSize: '0.9rem', fontWeight: '700'}}>
+                                    Best rates guarantee
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
                         </div>
                         <div>
 
-                            <Card className='car-card'>
-                                <Card.Body>
-                                    <img src={claim} style={{ width: '5rem' }} />
-                                    <Card.Text style={{ fontSize: '0.9rem', fontWeight: '700' }}>
-                                        Claim assistance complimentary
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                        <Card className='car-card'>
+                            <Card.Body>
+                                <img src={claim} style={{width: '5rem'}}/>
+                                <Card.Text style={{fontSize: '0.9rem', fontWeight: '700'}}>
+                                Claim assistance complimentary
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        </div>
+                        <div>
+                        <Card className='car-card'>
+                            <Card.Body>
+                                <img src={income} style={{width: '5rem'}}/>
+                                <Card.Text className='card-text' style={{fontSize: '0.9rem', fontWeight: '700'}}>
+                                Free of cost service
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
                         </div>
                     </div>
                 </div>

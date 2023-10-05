@@ -13,24 +13,14 @@ function BIKE() {
                 <div>
                     <p>Get your Motor Bike Insured</p>
                     <h3>From Top Insurance Providers in Pakistan</h3>
-                    <img src={bike} />
+                    <img src={bike} style={{width: '25rem'}}/>
                     <div className='car-card-c'>
-                        <div>
+                    <div>
                         <Card className='car-card'>
                             <Card.Body className='car-card-body'>
                                 <img src={best} style={{width: '5rem'}}/>
                                 <Card.Text style={{fontSize: '0.9rem', fontWeight: '700'}}>
                                     Best rates guarantee
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        </div>
-                        <div>
-                        <Card className='car-card'>
-                            <Card.Body>
-                                <img src={income} style={{width: '5rem'}}/>
-                                <Card.Text className='card-text' style={{fontSize: '0.9rem', fontWeight: '700'}}>
-                                Free of cost service
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -42,6 +32,16 @@ function BIKE() {
                                 <img src={claim} style={{width: '5rem'}}/>
                                 <Card.Text style={{fontSize: '0.9rem', fontWeight: '700'}}>
                                 Claim assistance complimentary
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        </div>
+                        <div>
+                        <Card className='car-card'>
+                            <Card.Body>
+                                <img src={income} style={{width: '5rem'}}/>
+                                <Card.Text className='card-text' style={{fontSize: '0.9rem', fontWeight: '700'}}>
+                                Free of cost service
                                 </Card.Text>
                             </Card.Body>
                         </Card>

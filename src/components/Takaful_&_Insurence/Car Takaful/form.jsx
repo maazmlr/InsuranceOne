@@ -38,7 +38,6 @@ const App = () => {
         name="control-hooks"
         onFinish={onFinish}
         style={{
-          width: 300,
           marginTop: 20,
           marginBottom: 20,
           textAlign: 'start',
@@ -146,7 +145,7 @@ const App = () => {
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit"
-          style={{width: '10rem', margin: '0 -125px'}}
+          style={{padding: '0rem 5rem', margin: '0rem -3.7rem'}}
           className='form-btn'>
             Next
           </Button>

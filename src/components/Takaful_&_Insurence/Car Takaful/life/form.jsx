@@ -32,7 +32,7 @@ const App = () => {
     <div style={{ border: '1px solid blue', padding: '1rem 5rem', borderRadius: '10px' }}>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
-        <h3>Let's get connected!</h3>
+        <h3 style={{fontSize: '1.4rem'}}>Let's get connected!</h3>
       </div>
       <Form
         {...layout}
@@ -40,7 +40,6 @@ const App = () => {
         name="control-hooks"
         onFinish={onFinish}
         style={{
-          width: 300,
           marginTop: 20,
           marginBottom: 20,
           textAlign: 'start',
@@ -154,7 +153,7 @@ const App = () => {
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit"
-          style={{width: '10rem', margin: '0 -125px'}}
+          style={{padding: '0rem 5rem', margin: '0rem -5.7rem'}}
           className='form-btn'>
             Submit now
           </Button>

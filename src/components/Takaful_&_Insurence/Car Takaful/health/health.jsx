@@ -1,22 +1,22 @@
-import health from '../../../../assets/Takaful/life-insurance.avif';
+import health from '../../../../assets/Takaful/health.png';
 import income from '../../../../assets/About/income.png';
 import best from '../../../../assets/Takaful/best.png'
 import claim from '../../../../assets/Takaful/claim.png'
 import Card from 'react-bootstrap/Card';
 import bg from '../../../../assets/Takaful/card.jpg'
 import Form from './form'
-import Collapse from './lifeCollapse';
+import Collapse from './healthCollapse';
 
-function LIFE() {
+function HEALTH() {
     return (
         <div>
             <div className='car-takaful'>
                 <div>
                     <p>Protect your & loved ones' future</p>
                     <h3>with reliable life insurance plans</h3>
-                    <img src={health} style={{width: '35rem'}}/>
+                    <img src={health} style={{width: '25rem'}}/>
                     <div className='car-card-c'>
-                        <div>
+                    <div>
                         <Card className='car-card'>
                             <Card.Body className='car-card-body'>
                                 <img src={best} style={{width: '5rem'}}/>
@@ -52,28 +52,26 @@ function LIFE() {
                 <div>
                     <Form />
                 </div>
-                            
+
             </div>
-                <div className='card-insurance-header' style={{border: 'none'}}>
-                <Card className='card-insurance' style={{border: 'none'}}>
-                    <Card.Header className='card-insurance-heading' style={{color: 'white',border:"none"}}>Life Insurance Plan</Card.Header>
+            <div className='card-insurance-header' style={{ border: 'none' }}>
+                <Card className='card-insurance' style={{ border: 'none' }}>
+                    <Card.Header className='card-insurance-heading' style={{ color: 'white', border: "none" }}>Health And Accident Insurance Plan</Card.Header>
                     <Card.Body>
-                        <Card.Text className='card-insurance-text' style={{color: '#00bcf9'}}>
-                        Welcome to OneClick Digital's Life Insurance Plan
-                        </Card.Text>
-                        <Card.Text style={{fontWeight: '600'}}>
-                        Where we make your future financial security our top priority. Life is full of uncertainties, but with our comprehensive coverage, you can ensure that your loved ones are protected and financially secure even in your absence.
-                        </Card.Text>
+                        <Card.Text className='card-insurance-text' style={{ color: '#00bcf9' }}>
+                        Discover the peace of mind that comes with OneClick Digital's Health and Accident Insurance Plan                        </Card.Text>
+                        <Card.Text style={{ fontWeight: '600' }}>
+                        We understand that life can be unpredictable, and accidents or health issues can happen when you least expect them. Our comprehensive coverage is here to ensure you and your loved ones are protected in times of need.                        </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card className='card-insurance' style={{border: 'none', marginTop: '3px'}}>
-                    <Card.Header className='card-insurance-heading' style={{color: 'white',border:"none"}}>About Life Insurance</Card.Header>
+                <Card className='card-insurance' style={{ border: 'none', marginTop: '3px' }}>
+                    <Card.Header className='card-insurance-heading' style={{ color: 'white', border: "none" }}>About Health And Accident Insurance</Card.Header>
                     <Card.Body>
-                        <Card.Text className='card-insurance-text' style={{color: '#00bcf9'}}>
-                        Life Insurance is more than just a policy; it's a promise to safeguard your family's future
+                        <Card.Text className='card-insurance-text' style={{ color: '#00bcf9' }}>
+                        Health and Accident Insurance is a Vital Component of your Financial Security
                         </Card.Text>
-                        <Card.Text style={{fontWeight: '600'}}>
-                        At OneClick Digital, we understand the importance of providing for your loved ones, and our Life Insurance is designed to offer peace of mind and financial stability when it's needed the most.
+                        <Card.Text style={{ fontWeight: '600' }}>
+                            At OneClick Digital, we understand the importance of providing for your loved ones, and our Life Insurance is designed to offer peace of mind and financial stability when it's needed the most.
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -85,4 +83,4 @@ function LIFE() {
     )
 }
 
-export default LIFE;
+export default HEALTH;

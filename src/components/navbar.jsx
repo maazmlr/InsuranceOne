@@ -41,7 +41,7 @@ class Navbar extends Component {
                         </ul>
                     </div>
                     <div className='btn-navbar'>
-                        <a><button>Sign in</button></a>
+                        <a href='/signIn'><button>Sign in</button></a>
                     </div>
                     <div id="mobile" onClick={this.handleClick}>
                         <i id='bars' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>

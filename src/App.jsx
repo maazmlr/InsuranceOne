@@ -11,6 +11,9 @@ import About from './components/about/about';
 import CAR from './components/Takaful_&_Insurence/Car Takaful/car';
 import BIKE from './components/Takaful_&_Insurence/Car Takaful/bike/bike';
 import LIFE from './components/Takaful_&_Insurence/Car Takaful/life/life';
+import HEALTH from './components/Takaful_&_Insurence/Car Takaful/health/health';
+import Signin from './components/signIn/signIn';
+import SignUp from './components/SignUp/signUp';
 
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
     <Route path='/car' element={<CAR/>} />
     <Route path='/bike' element={<BIKE/>} />
     <Route path='/life' element={<LIFE/>} />   
+    <Route path='/health' element={<HEALTH/>} />   
+    <Route path='/signIn' element={<Signin/>} />  
+    <Route path='/signup' element={<SignUp/>} />
     </Route >
 
   ))

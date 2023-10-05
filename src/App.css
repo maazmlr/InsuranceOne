@@ -9,7 +9,7 @@
     -webkit-text-fill-color: transparent;
 }
 .background-color{
-    background: -webkit-linear-gradient(#0162ea71, #00bbf96a);
+    background: -webkit-linear-gradient(#0162ea, #00bbf9);
     padding: 1rem;
     border-radius: 0.5rem;
 }
@@ -229,7 +229,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 120px;
 }
 .car{
     margin: 3rem 6rem;
@@ -244,15 +244,17 @@
 
 
 .about{
-    margin: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 2rem 0rem;
 }
+
 .form{
-    padding: 1rem 5rem;
-    border: 1px solid blue;
+    padding: 1rem 8rem;
+    border: 1px solid #0162ea;
+    border-radius: 1rem;
 }
 .form-btn{
     padding: 0rem 1rem;
@@ -266,7 +268,7 @@
 .about-form img{
     width: 3rem;
     height: 3rem;
-    margin: 2rem 0;
+    margin: 0.5rem 0;
 }
 .about-form h3{
     font-size: 2rem;
@@ -274,14 +276,15 @@
 }
 .about-form p{
     margin: 1rem 0;
+    font-weight: 500;
 }
 .form-details{
     display: flex;
-    margin: 5rem 2rem;
+    margin: 3.5rem 2rem;
 }
 .form-details img{
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     margin: 0 2rem;
 }
 .form-details h3{
@@ -290,9 +293,10 @@
 }
 .form-details p{
     font-size: 1.2rem;
-    margin: 0.2rem 0;
+    margin: 0rem 0;
 }
 .reach-us{
+    width: 30rem;
     font-weight: 500;
     font-size: 3rem;
 }
@@ -336,7 +340,7 @@
 /* ---------- Car Takaful ------------ */
 
 .car-takaful{
-    margin: 2rem;
+  margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -344,18 +348,24 @@
     text-align: center;
 }
 .car-takaful div p{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
     font-weight: 600;
 }
+.car-form h3{
+  font-size: 1.5rem;
+}
 .car-takaful div h3{
-    font-size: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
     margin: 5px 0;
     font-weight: 600;
 }
 .car-takaful div img{
-    width: 20rem;
+    width: 28rem;
     margin: 0 auto;
 }
+
 .car-card{
     background-image: url('./assets/Takaful/card.jpg');
     background-repeat: no-repeat;
@@ -415,6 +425,37 @@
   .collapse-btn{
     background: -webkit-linear-gradient(#0163ea, #00bcf9);;
   }
+  .hovering:hover{
+    opacity: 0.9;
+    transition: 0.3s ease-in-out;
+  }
+
+  /* health */
+  .health-header{
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .health-header a{
+    border-top: 1px solid rgb(173, 170, 170);
+    border-left: 1px solid rgb(173, 170, 170);
+    border-right: 1px solid rgb(173, 170, 170);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  .health-header a img{
+    width: 3rem;
+  }
+  .health-header a p{
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .health-header a:hover, .health-header a:active{
+    background-image: url('./assets/Takaful/vivid-blurred-colorful-wallpaper-background_58702-3832.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.3s ease-in-out;
+}
 @media only screen and (max-width: 600px) {
     *{
      font-size: 8px;

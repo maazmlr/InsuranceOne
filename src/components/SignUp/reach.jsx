@@ -5,8 +5,8 @@ import location from '../../assets/About/location.png'
 function Reach() {
     return (
         <div className="reach-us">
-            <h3>Reach to us</h3>
-            <p style={{margin: '1rem 0'}}>We are Pakistan's leading insurance marketplace helping individuals and businesses find the best insurance plan.</p>
+            <h3 >Get in touch</h3>
+            <p style={{margin: '1rem 0'}}>On the other hand we denounce righteous indignation moralized bite the HR charms of pleasure.</p>
             <div className="form-details">
                 <img className='background-color' src={location} style={{marginTop:'0.5rem'}}/>
                 <div>
