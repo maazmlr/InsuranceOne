@@ -176,6 +176,100 @@
   }
   /* header end */
 
+
+  /* ------------------- Footer Start -------------------- */
+
+/* Footer */
+.footer-bg{
+  background-image: url('./assets/footer-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1rem 0;
+}
+.Footer{
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.card1{
+  width: 35rem;
+}
+.seal{
+  display: flex;
+}
+.footer-icon{
+  background-color: white;
+  color: #015fea;
+  border-radius: 50%;
+  padding: 15px;
+}
+.footer-icon:hover{
+  background-color: #015fea;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+.footer-card{
+  display: flex;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.footer-list li a{
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.footer-list li a:hover{
+  color: #00bcf9;
+  margin-left: 16px;
+  transition: 0.5s ease-in-out;
+}
+.footer-list li{
+  margin: 1.4rem 0;
+}
+.footer-payment{
+  background-color: #323131;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.footer-payment h1{
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  word-spacing: 8px;
+}
+.footer-payment div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.socialMedia{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.socialMedia a{
+  color: #00bcf9;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 50%;
+}
+.socialMedia a:hover{
+  background-color: #00bcf9;
+  border: 2px solid white;
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+
+  /* ------------------- Footer End ---------------------- */
+
 /* ---------------------Partners----------- */
 
 .partners{
@@ -517,6 +611,31 @@
     #mobile i{
       font-size: 24px;
       cursor: pointer;
+    }
+    .Footer{
+      display: block;
+      text-align: center;
+      align-items: center;
+    }
+    .Footer div{
+      margin: 16px auto;
+    }
+    .footer-card{
+      display: block;
+    }
+    .Footer{
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .footer-list li{
+      margin-right: 0;
+    }
+    .card1{
+      width: 21rem;
+    }
+    .footer-card div p{
+      margin-top: 0px;
     }
   }
  

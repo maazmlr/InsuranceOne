@@ -1,27 +1,89 @@
-import React from 'react'
+import React from 'react';
+import { Card } from 'antd';
+import logoW from '../assets/oneclick-white-logo.png';
+import seal from '../assets//seal-of-registrar-of-company.png'
+import NotListedLocationOutlinedIcon from '@mui/icons-material/NotListedLocationOutlined';
+import AddIcCallOutlinedIcon from '@mui/icons-material/AddIcCallOutlined';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import { WhatsAppOutlined, FacebookOutlined, LinkedinOutlined, InstagramOutlined } from '@ant-design/icons';
+import bank from '../assets//bankalfalah.webp'
 
-export default function Footer() {
-  return (
-<footer className="footer p-10 bg-base-200 text-base-content">
-  <aside>
-    <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="fill-current"><path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path></svg>
-    <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
-  </aside> 
-  
-  <nav>
-    <header className="footer-title">Company</header> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
-  </nav> 
-  <nav>
-    <header className="footer-title">Services</header> 
-    <a className="link link-hover">Branding</a> 
-    <a className="link link-hover">Design</a> 
-    <a className="link link-hover">Marketing</a> 
-    <a className="link link-hover">Advertisement</a>
-  </nav> 
-  
-</footer>  )
+function Footer() {
+    return (
+        <div>
+            <div className='footer-bg'>
+                <div className="Footer">
+                    <div className="footer-card">
+                        <Card
+                            bordered={false}
+                            style={{
+                                backgroundColor: '#10212b',
+                                color: 'white',
+                            }}
+                            className='card1'
+                        >
+                            <img src={logoW} style={{ width: "7rem", margin: '1rem 0' }} />
+                            <p>OneClick Digital offers customized insurance solutions to meet your specific needs, whether it's for your home, car, health, business, or life. We work with you to create a policy that fits your unique situation.</p>
+                            <div className='seal'>
+                                <p style={{ fontWeight: '600', marginTop: '2rem' }}>Seal of Registrar of Company </p>
+                                <img src={seal} style={{ width: "5.5rem", margin: '0 1rem' }} />
+                            </div>
+                        </Card>
+                    </div>
+                    <div style={{ color: 'white', letterSpacing: '1px' }}>
+                        <h1 style={{ fontSize: '1.8rem'}}>Quick Links</h1>
+                        <ul className='footer-list'>
+                            <li><a href="/car">Car Insurance</a></li>
+                            <li><a href="/bike">Bike Insurance</a></li>
+                            <li><a href="/health">Health Insurance</a></li>
+                            <li><a href="">Travel Insurance</a></li>
+                            <li><a href="/life">Life Insurance</a></li>
+                        </ul>
+                    </div>
+                    <div style={{ color: 'white', letterSpacing: '1px' }}>
+                        <h1 style={{ fontSize: '1.8rem' }}>Contact Info</h1>
+                        <div className='footer-card' style={{ margin: '1.5rem 0' }}>
+                            <NotListedLocationOutlinedIcon className='footer-icon' style={{ fontSize: '4rem' }} />
+                            <div style={{ margin: '0 1rem', fontWeight: '600', letterSpacing: '1px' }}>
+                                <p className='p1' style={{ marginTop: '6px' }}>R-613, Block 15, Dastagir, FB Area,</p>
+                                <p>Karachi - Pakistan</p>
+                            </div>
+                        </div>
+                        <div className='footer-card' style={{ margin: '1.5rem 0' }}>
+                            <AlternateEmailOutlinedIcon className='footer-icon' style={{ fontSize: '4rem' }} />
+                            <div style={{ margin: '0 1rem', fontWeight: '600', letterSpacing: '1px' }}>
+                                <p>info@theoneclickdigital.com</p>
+                                <p >+92 319 599 5775</p>
+                                <p >+92 319 599 5775</p>
+                            </div>
+                        </div>
+                        <div className='footer-card' style={{ margin: '1.5rem 0' }}>
+                            <AddIcCallOutlinedIcon className='footer-icon' style={{ fontSize: '4rem' }} />
+                            <div style={{ margin: '0 1rem', fontWeight: '600', letterSpacing: '1px' }}>
+                                <p style={{ marginTop: '19px' }}>Mon - Sat (9AM - 6PM)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='footer-payment'>
+                    <h1>Payment Method</h1>
+                    <div>
+                        <img src={bank} style={{ width: '6.5rem', margin: '0.6rem 0' }} />
+                        <img src={bank} style={{ width: '6.5rem', margin: '0.6rem 0' }} />
+                        <img src={bank} style={{ width: '6.5rem', margin: '0.6rem 0' }} />
+                        <img src={bank} style={{ width: '6.5rem', margin: '0.6rem 0' }} />
+                    </div>
+                </div>
+                <div className='socialMedia'>
+                    <a href='https://web.whatsapp.com/send?phone=923195995775' target='_blank'><WhatsAppOutlined /></a>
+                    <a href='https://www.facebook.com/oneclickdigital786' target='_blank'><FacebookOutlined /></a>
+                    <a href='https://pk.linkedin.com/company/oneclick-insurance' target='_blank'><LinkedinOutlined /></a>
+                    <a href='https://www.theoneclickdigital.com/car-insurance' target='_blank'><InstagramOutlined /></a>
+                </div>
+                <p style={{textAlign: 'center', color: 'white', fontSize: '1.5rem', fontWeight: '600', margin: '1rem 0'}}>Copyright © 2023 Oneclick Digital.</p>
+            </div>
+        </div>
+    )
 }
+
+export default Footer;
