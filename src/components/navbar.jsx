@@ -28,6 +28,7 @@ class Navbar extends Component {
                             <li>
                                 <a> Takaful & Insurance ▾</a>
                                 <ul class="dropdown" style={{backgroundColor: "white"}}>
+                                    
                                     <li><a href="/car" style={{color: 'black'}}>Car Insurance</a></li>
                                     <li><a href="/bike" style={{color: 'black'}}>Bike Insurance</a></li>
                                     <li><a href="/health" style={{color: 'black'}}>Health Insurance</a></li>
@@ -38,6 +39,7 @@ class Navbar extends Component {
                             <li><a href='/contact'>Contact Us</a></li>
                             <li><a href='/about'>About Us</a></li>
                             <li><a href='#'>FAQs Us</a></li>
+                            <li className='bas'><a href='/signIn'><button>Sign in</button></a></li>
                         </ul>
                     </div>
                     <div className='btn-navbar'>
