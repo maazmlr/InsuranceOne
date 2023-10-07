@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -29,7 +30,7 @@ class Navbar extends Component {
                                 <a> Takaful & Insurance ▾</a>
                                 <ul class="dropdown" style={{backgroundColor: "white"}}>
                                     
-                                    <li><a href="/car" style={{color: 'black'}}>Car Insurance</a></li>
+                                    <li><NavLink end to={"."} style={{color: 'black'}}>Car Insurance</NavLink></li>
                                     <li><a href="/bike" style={{color: 'black'}}>Bike Insurance</a></li>
                                     <li><a href="/health" style={{color: 'black'}}>Health Insurance</a></li>
                                     <li><a href="#" style={{color: 'black'}}>Travel Insurance</a></li>
