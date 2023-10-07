@@ -333,6 +333,18 @@ a{
     flex-wrap: wrap;
     justify-content: center;
 }
+.faq{
+  background-color: aliceblue;
+  height: 80vh;
+}
+.accord-holder{
+  width: 100vw;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
   /* About us */
 

@@ -14,6 +14,7 @@ import LIFE from './components/Takaful_&_Insurence/Car Takaful/life/life';
 import HEALTH from './components/Takaful_&_Insurence/Car Takaful/health/health';
 import Signin from './components/signIn/signIn';
 import SignUp from './components/SignUp/signUp';
+import Accordion from './components/Home/Accordian';
 
 
 function App() {
