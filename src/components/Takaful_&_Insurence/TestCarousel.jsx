@@ -1,23 +1,27 @@
-import Carousel from 'react-bootstrap/Carousel';
-
-function DarkVariantExample() {
-  return (
-    <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img src="https://img.bingewatch.to/xxrz/250x400/529/95/40/9540fa64f54a4c7127baa9a0a3e24aaa/9540fa64f54a4c7127baa9a0a3e24aaa.jpg" alt="" />
-       
-      </Carousel.Item>
-      <Carousel.Item>
-      <img src="https://img.bingewatch.to/xxrz/250x400/529/95/40/9540fa64f54a4c7127baa9a0a3e24aaa/9540fa64f54a4c7127baa9a0a3e24aaa.jpg" alt="" />
-       
-      </Carousel.Item>
-      <Carousel.Item>
-        
-      <img src="https://img.bingewatch.to/xxrz/250x400/529/95/40/9540fa64f54a4c7127baa9a0a3e24aaa/9540fa64f54a4c7127baa9a0a3e24aaa.jpg" alt="" />
-      </Carousel.Item>
-      
-    </Carousel>
-  );
-}
-
-export default DarkVariantExample;
+import React from 'react';
+import { Carousel } from 'antd';
+import TestimonailCard from './TestimonailCard';
+const contentStyle = {
+  height: '350px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+const TestCarousel = () => (
+  <Carousel className='test' autoplay>
+    <div>
+      <TestimonailCard />
+    </div>
+    <div>
+     < TestimonailCard />
+    </div>
+    <div>
+    < TestimonailCard />
+    </div>
+    <div>
+    < TestimonailCard />
+    </div>
+  </Carousel>
+);
+export default TestCarousel;

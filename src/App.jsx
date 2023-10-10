@@ -17,24 +17,25 @@ import SignUp from './components/SignUp/signUp';
 import Accordion from './components/Home/Accordian';
 import UncontrolledExample from './components/Takaful_&_Insurence/TestCarousel';
 import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayout';
+import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
 
 
 function App() {
   const router=createBrowserRouter(createRoutesFromElements(
     <Route element={<PageLayout/>}>
     <Route path='/' element={<Home/>} />
-    <Route path='/contact' element={<Contact/>} />
-    <Route path='/about' element={<About/>} />
-    <Route element={<InsuranceLayout/>}>
+    <Route path='contact' element={<Contact/>} />
+    <Route path='about' element={<About/>} />
+    <Route path='insurance' element={<InsuranceLayout/>}>
     
     <Route index element={<CAR/>} />
-    <Route path='/bike' element={<BIKE/>} />
-    <Route path='/life' element={<LIFE/>} />   
-    <Route path='/health' element={<HEALTH/>} />  
+    <Route path='bike' element={<BIKE/>} />
+    <Route path='life' element={<LIFE/>} />   
+    <Route path='health' element={<HEALTH/>} />  
     </Route> 
-    <Route path='/signIn' element={<Signin/>} />  
+    <Route path='signIn' element={<Signin/>} />  
     
-    <Route path='/signup' element={<SignUp/>} />
+    <Route path='signup' element={<SignUp/>} />
     </Route >
 
   ))
@@ -42,7 +43,7 @@ function App() {
   return(
     
     <RouterProvider router={router}/>
-
+    // <TestimonailCard/>
   );
 }
 

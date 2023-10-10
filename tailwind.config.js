@@ -5,7 +5,9 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
+
 
   ],
   theme: {
@@ -13,6 +15,7 @@ export default {
   },
   darkMode: "class",
 
-  plugins: [require("daisyui"),nextui()],
+  plugins: [require("daisyui"),nextui(),require('flowbite/plugin')
+],
 
 }

@@ -30,9 +30,9 @@ class Navbar extends Component {
                                 <a> Takaful & Insurance ▾</a>
                                 <ul class="dropdown" style={{backgroundColor: "white"}}>
                                     
-                                    <li><NavLink end to={"."} style={{color: 'black'}}>Car Insurance</NavLink></li>
-                                    <li><a href="/bike" style={{color: 'black'}}>Bike Insurance</a></li>
-                                    <li><a href="/health" style={{color: 'black'}}>Health Insurance</a></li>
+                                    <li><NavLink end to={"insurance/."} style={{color: 'black'}}>Car Insurance</NavLink></li>
+                                    <li><a href="/insurance/bike" style={{color: 'black'}}>Bike Insurance</a></li>
+                                    <li><a href="/insurance/health" style={{color: 'black'}}>Health Insurance</a></li>
                                     <li><a href="#" style={{color: 'black'}}>Travel Insurance</a></li>
                                     <li><a href="/life" style={{color: 'black'}}>Life Insurance</a></li>
                                 </ul>
