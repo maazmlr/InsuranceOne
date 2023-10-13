@@ -1,15 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import family from "../../assets/icons/family.jpg"
-import familyB from "../../assets/icons/familyB.jpg"
-import bike from "../../assets/icons/bike.jpg"
-import bikeB from "../../assets/icons/bikeB.jpg"
-import car from "../../assets/icons/car.jpg"
-import carB from "../../assets/icons/carB.jpg"
-import travel from "../../assets/icons/travel.jpg"
-import travelB from "../../assets/icons/travelB.jpg"
-import health from "../../assets/icons/health.jpg"
-import healthB from "../../assets/icons/healthB.jpg"
+import family from "../../assets/icons/family.png"
+import familyB from "../../assets/icons/familyB.png"
+import bike from "../../assets/icons/bike.png"
+import bikeB from "../../assets/icons/bikeB.png"
+import car from "../../assets/icons/car.png"
+import carB from "../../assets/icons/carB.png"
+import travel from "../../assets/icons/travel.png"
+import travelB from "../../assets/icons/travelB.png"
+import health from "../../assets/icons/health.png"
+import healthB from "../../assets/icons/healthB.png"
 const Items = () => (
  <div className="card-holder">
     <Cards heading={"Family"} img={family} imgB={familyB} />
@@ -29,8 +29,8 @@ function Cards({heading, img, imgB}){
   };
     return(
       <a href="">
-        <div className="card-normal 	shadow-xl mt-12 mr-2 home-card" >
-        <div className="card-body" style={{minWidth:"2rem", textAlign: 'center'}}>
+        <div className="card-normal mt-12 mr-3 home-card" style={{}}>
+        <div className="card-body" style={{minWidth:"2rem", textAlign: 'center', borderRadius: '0.4rem'}}>
             <img 
             src={isHovered ? img : imgB}
             alt="Image"

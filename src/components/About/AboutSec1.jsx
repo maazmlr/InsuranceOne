@@ -1,7 +1,7 @@
 function AboutSec1(){
     return(
         <div className="about-section-1">
-            <h1 className="h1-about">About US</h1>
+            <h1 className="h1-about" style={{textAlign: 'center'}}>About US</h1>
             <h1 style={{textAlign:"center",fontSize:'2rem',fontWeight:"bold"}} className="color">Insurance Solution With Experts
 </h1>
             <p className="about-desc" style={{padding:'0 4rem',textAlign:'center',margin:'1.5rem auto',fontSize:"1.3rem",fontWeight:'500'}}>

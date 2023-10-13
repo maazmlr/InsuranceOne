@@ -6,8 +6,10 @@ import service from "../../assets/About/services.png"
 
 function AboutCard() {
   return (
-    <CardGroup >
-      <Card border='none'	>
+    <div style={{padding: '3rem 0 6rem 0', background: 'whitesmoke'}}>
+    <h1 style={{textAlign:'center', fontSize: '1.5rem', margin: '0 0 2rem 0', fontWeight: '700'}}>Three Steps To Buying the Right Takaful & Insurance Plan</h1>
+    <CardGroup>
+      <Card border='none'	style={{background: 'whitesmoke'}}>
         <Card.Img variant="top" src={claim} style={{height:'12em',width:'15rem'}} className='mx-auto d-block' />
         <Card.Body>
           <Card.Title className='mx-auto '>Claim assistance</Card.Title>
@@ -18,7 +20,7 @@ function AboutCard() {
         </Card.Body>
        
       </Card>
-      <Card border='none'> 
+      <Card border='none' style={{background: 'whitesmoke'}}> 
         <Card.Img variant="top" src={free} style={{height:'12em',width:'15rem'}}  className='mx-auto d-block'/>
         <Card.Body>
           <Card.Title className='mx-auto '>Best rates
@@ -29,7 +31,7 @@ function AboutCard() {
         </Card.Body>
       
       </Card>
-      <Card border='none'>
+      <Card border='none' style={{background: 'whitesmoke'}}>
         <Card.Img variant="top" src={service} style={{height:'12em',width:'15rem'}}  className='mx-auto d-block' />
         <Card.Body  className='mx-auto '>
           <Card.Title  className='mx-auto '>Free of cost service
@@ -42,6 +44,7 @@ function AboutCard() {
        
       </Card>
     </CardGroup>
+    </div>
   );
 }
 

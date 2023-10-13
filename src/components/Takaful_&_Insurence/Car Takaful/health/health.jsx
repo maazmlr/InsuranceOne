@@ -4,7 +4,7 @@ import best from '../../../../assets/Takaful/best.png'
 import claim from '../../../../assets/Takaful/claim.png'
 import Card from 'react-bootstrap/Card';
 import bg from '../../../../assets/Takaful/card.jpg'
-import Form from './form'
+import Tab from './tab'
 import Collapse from './healthCollapse';
 
 function HEALTH() {
@@ -50,7 +50,7 @@ function HEALTH() {
                     </div>
                 </div>
                 <div>
-                    <Form />
+                    <Tab />
                 </div>
 
             </div>

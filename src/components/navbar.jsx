@@ -28,13 +28,13 @@ class Navbar extends Component {
                             <li><a href='/'>Home</a></li>
                             <li>
                                 <a> Takaful & Insurance ▾</a>
-                                <ul class="dropdown" style={{backgroundColor: "white"}}>
+                                <ul class="dropdown" style={{backgroundColor: "white",}}>
                                     
                                     <li><NavLink end to={"insurance/."} style={{color: 'black'}}>Car Insurance</NavLink></li>
                                     <li><a href="/insurance/bike" style={{color: 'black'}}>Bike Insurance</a></li>
                                     <li><a href="/insurance/health" style={{color: 'black'}}>Health Insurance</a></li>
                                     <li><a href="#" style={{color: 'black'}}>Travel Insurance</a></li>
-                                    <li><a href="/life" style={{color: 'black'}}>Life Insurance</a></li>
+                                    <li><a href="/insurance/life" style={{color: 'black'}}>Life Insurance</a></li>
                                 </ul>
                             </li>
                             <li><a href='/contact'>Contact Us</a></li>

@@ -27,7 +27,7 @@ const App = () => {
     form.resetFields();
   };
   return (
-    <div style={{ border: '1px solid blue', padding: '2rem 2rem', borderRadius: '10px' }}>
+    <div style={{ border: '1px solid #00bcf9', padding: '2rem 2rem', borderRadius: '10px' }}>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
         <h3>Let's get connected!</h3>

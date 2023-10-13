@@ -29,7 +29,7 @@ const App = () => {
   };
   const [show, hide] = useState(false);
   return (
-    <div style={{ border: '1px solid blue', padding: '1rem 5rem', borderRadius: '10px' }}>
+    <div style={{ border: '1px solid #00bcf9', padding: '1rem 5rem', borderRadius: '10px' }}>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
         <h3 style={{fontSize: '1.4rem'}}>Let's get connected!</h3>
@@ -55,7 +55,7 @@ const App = () => {
           },
         ]}
         >
-          <Input placeholder='Full name' style={{width: '20rem'}}/>
+          <Input placeholder='Full name' style={{width: '20rem', borderRadius: '0.3rem', height: '2rem'}}/>
         </Form.Item>
         <Form.Item 
         name="Contact"
@@ -83,7 +83,7 @@ const App = () => {
           },
         ]}
         >
-          <Input placeholder='Email address' style={{width: '20rem'}}/>
+          <Input placeholder='Email address' style={{width: '20rem', borderRadius: '0.3rem', height: '2rem'}}/>
         </Form.Item>
         <Form.Item
           name="Income source"

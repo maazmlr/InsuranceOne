@@ -12,10 +12,10 @@ export default function Section1() {
 
         
 
-        <h1 className="sec1-head">
-            One Click Digital Insurance
+        <h1 className="sec1-head" style={{position:'relative', zIndex: '99996'}}>
+            Oneclick Digital Insurance
         </h1>
-        <p className="sec1-desc">
+        <p className="sec1-desc" style={{position:'relative', zIndex: '99996'}}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quidem.
         </p>
         <Items/>

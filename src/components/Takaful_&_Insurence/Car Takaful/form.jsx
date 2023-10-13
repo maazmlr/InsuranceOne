@@ -1,5 +1,6 @@
-import React from 'react';
-import { Button, Form, Input, Select,InputNumber } from 'antd';
+import React, { useState } from 'react';
+import { Button, Form, Input, Select,InputNumber, Steps } from 'antd';
+import { LoginOutlined } from '@mui/icons-material';
 import income from '../../../assets/About/income.png'
 const { Option } = Select;
 const layout = {
@@ -17,26 +18,66 @@ const tailLayout = {
   },
 };
 const App = () => {
+
   const [form] = Form.useForm();
+  const [curr, setCurr] = useState(0);
+  const [details, setDetails] = useState(null);
+  const [Profile, setProfile] = useState(null)
   const onGenderChange = (value) => {
   };
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinishLoginForm = (values) => {
+    setDetails(values);
+    setCurr(1);
   };
+  const onFinishProfileForm = (values) => {
+    setDetails(values);
+    setCurr(2);
+  };
+  const forms = [
+    <LoginForm onFinish={onFinishLoginForm} initialValues={details}/>,
+    <ProfileForm onFinish={onFinishProfileForm} initialValues={Profile} />,
+    <Finish/>
+]
   const onReset = () => {
     form.resetFields();
   };
+  const isStepDisabled=(stepNumber)=>{
+    if(stepNumber === 0){
+      return false;
+    }
+    if(stepNumber === 1){
+      return details === null
+    }
+    if(stepNumber === 2){
+      return details === null || Profile === null
+    }
+  }
   return (
-    <div style={{ border: '1px solid blue', padding: '1rem 5rem', borderRadius: '10px' }}>
+    <div style={{ border: '1px solid #00bcf9', padding: '1rem 5rem', borderRadius: '10px' }}>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
         <h3>Let's get connected</h3>
       </div>
-      <Form
+      <div className='App'>
+        <Steps style={{padding: '32px 16px'}}
+        onChange= {setCurr}
+        current={curr}>
+          <Steps.Step title="login" disabled={isStepDisabled(0)} icon={<LoginOutlined/>}/>
+          <Steps.Step title="Profile" disabled={isStepDisabled(1)} icon={<LoginOutlined/>}/>
+          <Steps.Step title="Finsih" disabled={isStepDisabled(2)} icon={<LoginOutlined/>}/>
+        </Steps>
+        {forms[curr]}
+      </div>
+  </div>
+  )
+};
+function LoginForm({onFinish, initialValues}){
+  return(
+    <Form
         {...layout}
-        form={form}
         name="control-hooks"
         onFinish={onFinish}
+        initialValues={initialValues}
         style={{
           marginTop: 20,
           marginBottom: 20,
@@ -143,15 +184,81 @@ const App = () => {
             }
         }}/>
         </Form.Item>
+        
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit"
-          style={{padding: '0rem 5rem', margin: '0rem -3.7rem'}}
+        <Button type="primary" htmlType="submit"
+          style={{padding: '0rem 2rem'}}
           className='form-btn'>
             Next
           </Button>
         </Form.Item>
       </Form>
-    </div>
-  );
-};
+  )
+}
+function ProfileForm({onFinish,  initialValues}){
+  return(
+    <Form 
+    onFinish={onFinish}
+    initialValues={initialValues}
+    style={{
+      marginTop: 20,
+      marginBottom: 20,
+      textAlign: 'start',
+      marginRight: 10
+    }}
+  >
+   <Form.Item 
+    name="Name"
+    rules={[
+      {
+        required: true,
+        
+      },
+    ]}
+    >
+      <Input placeholder='Full name' style={{width: '20rem', height: '3rem'}}/>
+    </Form.Item>
+    <Form.Item 
+    name="Email address"
+    rules={[
+      {
+        required: true,
+        
+      },
+    ]}
+    >
+      <Input placeholder='Email address' style={{width: '20rem', height: '3rem'}}/>
+    </Form.Item>
+    <Form.Item 
+    name="Phone"
+    rules={[
+      {
+        required: true,
+        
+      },
+    ]}
+    >
+      <InputNumber placeholder='Phone' style={{width: '20rem', height: '3rem'}}/>
+    </Form.Item>
+    <Form.Item {...tailLayout}>
+        <Button type="primary" htmlType="submit"
+          style={{padding: '0rem 2rem'}}
+          onClick={()=> setValue(false)}
+          className='form-btn'>
+            See Plans
+          </Button>
+        </Form.Item>
+    </Form>
+  )
+}
+function Finish(){
+  return(
+    <Button type="primary" htmlType="submit"
+          style={{padding: '0rem 2rem'}}
+          onClick={()=> setValue(false)}
+          className='form-btn'>
+            Finish
+          </Button>
+  )
+}
 export default App;
