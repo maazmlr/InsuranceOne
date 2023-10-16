@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Input, Select,InputNumber, Steps } from 'antd';
 import { LoginOutlined } from '@mui/icons-material';
 import income from '../../../assets/About/income.png'
+import ComboBox from './AutoComp';
+import TextField from '@mui/material/TextField';
+import axios from 'axios';
+
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -18,6 +22,9 @@ const tailLayout = {
   },
 };
 const App = () => {
+ 
+
+
 
   const [form] = Form.useForm();
   const [curr, setCurr] = useState(0);
@@ -72,7 +79,28 @@ const App = () => {
   )
 };
 function LoginForm({onFinish, initialValues}){
+  const [carData,setCarData]=useState([])
+
+  useEffect(()=>{
+    const val = axios.get("http://localhost:3000/car")
+    val.then(res=>setCarData(res.data.message[0].carData))
+  },[])
+
+
+
+  const nameCar=carData.map((v,i)=>(v.carName))
+    
+  const [carMan,setCarMan]=useState("")
+
+
+  function handleChange(e){
+    setCarMan(e)
+    console.log("car-->",carMan)
+  }
+  
   return(
+
+
     <Form
         {...layout}
         name="control-hooks"
@@ -87,102 +115,53 @@ function LoginForm({onFinish, initialValues}){
       >
         <Form.Item
           name="manufacturer"
+
           rules={[
             {
-              required: true,
+              required: false,
             },
           ]}
         >
-          <Select
-            placeholder="Select manufacturer"
-            style={{width: '20rem'}}
-          >
-            <Option value="Suzuki">Suzuki</Option>
-            <Option value="Toyota">Toyota</Option>
-            <Option value="Honda">Honda</Option>
-            <Option value="Daihatsu">Daihatsu</Option>
-            <Option value="Nissan">Nissan</Option>
-            <Option value="Hyundai">Hyundai</Option>
-            <Option value="Cherry">Cherry</Option>
-            <Option value="United">United</Option>
-            <Option value="Adam">Adam</Option>
-            <Option value="Audi">Audi</Option>
-            <Option value="BMW">BMW</Option>
-            <Option value="Changan">Changan</Option>
-            <Option value="FAW">FAW</Option>
-            <Option value="Hino">Hino</Option>
-            <Option value="Jac">Jac</Option>
-            <Option value="Jaguar">Jaguar</Option>
-            <Option value="Jeep">Jeep</Option>
-            <Option value="JMC">JMC</Option>
-            <Option value="JW Forland">JW Forland</Option>
-            <Option value="KIA">KIA</Option>
-            <Option value="Land Rover">Land Rover</Option>
-            <Option value="Mercedes">Mercedes</Option>
-            <Option value="Lexus">Lexus</Option>
-            <Option value="Mazda">Mazda</Option>
-            <Option value="Mitsubishi">Mitsubishi</Option>
-            <Option value="Porsche">Porsche</Option>
-            <Option value="Tesla">Tesla</Option>
-            <Option value="Rang Rover">Rang Rover</Option>
-            <Option value="Prince">Prince</Option>
-            <Option value="ISUZU">ISUZU</Option>
-            <Option value="MG">MG</Option>
-            <Option value="Proton">Proton</Option>
-            <Option value="Haval">Haval</Option>
-            <Option value="Subaru">Subaru</Option>
-            <Option value="Peugeot">Peugeot</Option>
-          </Select>
+        
+          <ComboBox  label={"select manufacturer"} data={nameCar}  handleChange={handleChange}/>
         </Form.Item>
         <Form.Item
           name="model"
           rules={[
             {
-              required: true,
+              required: false,
             },
           ]}
         >
-          <Select
-            placeholder="Select model"
-            style={{width: '20rem'}}
-          >
-            <Option value="male">male</Option>
-            <Option value="female">female</Option>
-            <Option value="other">other</Option>
-          </Select>
+           <ComboBox label={'select model'} data={nameCar}/>
         </Form.Item>
         <Form.Item
           name="manufacturing year"
           rules={[
             {
-              required: true,
+              required: false,
             },
           ]}
         >
-          <Select
-            placeholder="Select manufacturing year"
-            style={{width: '20rem'}}
-          >
-            <Option value="male">male</Option>
-            <Option value="female">female</Option>
-            <Option value="other">other</Option>
-          </Select>
+             <ComboBox label={'select manufacturing year'} data={nameCar} />
         </Form.Item>
         <Form.Item 
         name="value of car"
         rules={[
           {
-            required: true,
+            required: false,
             
           },
         ]}
-        >
-          <InputNumber min={1} placeholder='Value of Car (PKR)' style={{width: '20rem'}}
-          onKeyPress={(event) => {
-            if (!/[0-9]/.test(event.key)) {
-                event.preventDefault();
-            }
-        }}/>
+        > <TextField
+        id="outlined-number"
+        label="Value of car"
+        type="number"
+        style={{width:'20rem'}}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
         </Form.Item>
         
         <Form.Item {...tailLayout}>

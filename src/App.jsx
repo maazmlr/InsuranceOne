@@ -18,6 +18,10 @@ import Accordion from './components/Home/Accordian';
 import UncontrolledExample from './components/Takaful_&_Insurence/TestCarousel';
 import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayout';
 import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
+import AutoComp from './components/Takaful_&_Insurence/Car Takaful/AutoComp';
+
+
+
 
 
 function App() {
@@ -40,11 +44,13 @@ function App() {
 
   ))
 
-  return(
+return(
     
     <RouterProvider router={router}/>
-    // <TestimonailCard/>
-  );
+
+
+)
+
 }
 
 export default App
