@@ -24,6 +24,7 @@
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.4",
+    "libphonenumber-js": "^1.10.48",
     "mdb-ui-kit": "^6.4.2",
     "mdbootstrap": "^4.20.0",
     "primereact": "^10.0.2",

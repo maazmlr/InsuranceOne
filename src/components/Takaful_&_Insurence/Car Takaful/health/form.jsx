@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Form, Input, Select,InputNumber, DatePicker, } from 'antd';
+import { Button, Form, Input, Select, InputNumber, DatePicker, } from 'antd';
 import myself from '../../../../assets/Takaful/myself.png'
 import family from '../../../../assets/Takaful/family.png'
 import parents from '../../../../assets/Takaful/parents.png'
+import TextField from '@mui/material/TextField';
+import axios from 'axios'
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -24,26 +26,38 @@ const App = () => {
   const onGenderChange = (value) => {
   };
   const onFinish = (values) => {
-    console.log(values);
+    console.log("values-->",values);
+    axios.post('http://localhost:3000/myselfInsurance', {
+      values
+    }).then(res=> console.log(res))
+    
   };
   const onReset = () => {
     form.resetFields();
   };
   const [value, setValue] = useState(true);
+  const [fullName, setFullName] = useState()
+  const [email, setEmail] = useState()
+  const [phone, setPhone] = useState()
+  const [age, setAge] = useState()
+  const [cash, setCash] = useState()
+  let updateValue = {
+    fullName,
+    email,
+    phone,
+    age,
+    "insurancePrize": cash
+  }
   return (
     <div>
-      {value? <div>
-        <h1 style={{fontSize: '1.8rem', fontWeight: '600', textAlign: 'start', margin: '1rem 0 0 0', letterSpacing: '1px'}}>Asset Insurance</h1>
-        <p style={{fontSize: '1rem', fontWeight: '600', textAlign: 'start', margin: '0.2rem 0 1rem 0', letterSpacing: '0px'}}>Get a quote in just simple steps!</p>
-      </div> : <div>
-        <h1 style={{fontSize: '1.8rem', fontWeight: '600', textAlign: 'start', margin: '1rem 0 0 0', letterSpacing: '1px'}}>Personal Insurance</h1>
-        <p style={{fontSize: '1rem', fontWeight: '600', textAlign: 'start', margin: '0.2rem 0 1rem 0', letterSpacing: '0px'}}>Get a quote in just simple steps!</p>
-      </div> }
-      {value? <Form
+      <div>
+        <h1 style={{ fontSize: '1.8rem', fontWeight: '600', textAlign: 'start', margin: '1rem 0 0 0', letterSpacing: '1px' }}>Asset Insurance</h1>
+        <p style={{ fontSize: '1rem', fontWeight: '600', textAlign: 'start', margin: '0.2rem 0 1rem 0', letterSpacing: '0px' }}>Get a plan in just simple steps!</p>
+      </div>
+      <Form
         {...layout}
         form={form}
         name="control-hooks"
-        onFinish={onFinish}
         style={{
           marginTop: 20,
           marginBottom: 20,
@@ -51,111 +65,70 @@ const App = () => {
           marginRight: 10
         }}
       >
-       <Form.Item 
-        name="Name"
-        rules={[
-          {
-            required: true,
-            
-          },
-        ]}
-        >
-          <Input placeholder='Full name' style={{width: '20rem', height: '3rem', borderRadius: '0.3rem'}}/>
+        <Form.Item>
+          <TextField
+            label="Full name"
+            type={"text"}
+            style={{ width: '21rem' }}
+            onChange={(e) => setFullName(e.target.value)}
+            required />
         </Form.Item>
-        <Form.Item 
-        name="Email address"
-        rules={[
-          {
-            required: true,
-            
-          },
-        ]}
-        >
-          <Input placeholder='Email address' style={{width: '20rem', height: '3rem', borderRadius: '0.3rem'}}/>
+        <Form.Item>
+          <TextField
+            label="Email"
+            type={"email"}
+            style={{ width: '21rem' }}
+            onChange={(e) => setEmail(e.target.value)}
+            required />
+        </Form.Item>
+        <Form.Item>
+          <TextField
+            id="outlined-number"
+            label="Phone number"
+            type="number"
+            style={{ width: '21rem' }}
+            onChange={(e) => (e.target.value.length == 11) ? setPhone(e.target.value) : null}
+            required
+          />
         </Form.Item>
         <Form.Item
-          name="Insurance type"
           rules={[
             {
               required: true,
+
             },
           ]}
         >
-          <Select
-            placeholder="Insurance type"
-            style={{width: '20rem', height: '3rem'}}
-          >
-            <Option value="Car insurance">Car insurance</Option>
-            <Option value="Bike insurance">Bike insurance</Option>
-          </Select>
+          <TextField
+            id="outlined-number"
+            label="Select age"
+            type="number"
+            style={{ width: '21rem' }}
+            InputProps={{ inputProps: { min: 18, max: 75 } }}
+            onBlur={(e) => setAge(e.target.value)}
+            required
+          />
+        </Form.Item>
+        <Form.Item>
+          <TextField
+            id="outlined-number"
+            label="Select Hospitalization Limit (PKR)"
+            type="number"
+            style={{ width: '21rem' }}
+            InputProps={{ inputProps: { min: 60000, max: 1000000 } }}
+            onBlur={(e) => setCash(e.target.value)}
+            required
+          />
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit"
-                    style={{padding: '0.3rem 6rem', margin: '0rem -8rem'}}
-          className='form-btn'>
-            Get a Quote Now
+            style={{ margin: '0rem 0rem' }}
+            className='form-btn'
+            onClick={()=> (fullName && email && phone && age && cash) ? onFinish({...updateValue}) : alert("Number must have 11 digit")}>
+            Get a Plan Now
           </Button>
         </Form.Item>
-      </Form> : <Form
-        {...layout}
-        form={form}
-        name="control-hooks"
-        onFinish={onFinish}
-        style={{
-          marginTop: 20,
-          marginBottom: 20,
-          textAlign: 'start',
-          marginRight: 10
-        }}
-      >
-       <Form.Item 
-        name="Name"
-        rules={[
-          {
-            required: true,
-            
-          },
-        ]}
-        >
-          <Input placeholder='Full name' style={{width: '20rem', height: '3rem'}}/>
-        </Form.Item>
-        <Form.Item 
-        name="Email address"
-        rules={[
-          {
-            required: true,
-            
-          },
-        ]}
-        >
-          <Input placeholder='Email address' style={{width: '20rem', height: '3rem'}}/>
-        </Form.Item>
-        <Form.Item
-          name="Insurance type"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Select
-            placeholder="Insurance type"
-            style={{width: '20rem', height: '3rem'}}
-          >
-            <Option value="Family insurance">Family insurance</Option>
-            <Option value="Life insurance">Life insurance</Option>
-            <Option value="Travel insurance">Travel insurance</Option>
-            <Option value="Health insurance">Health insurance</Option>
-          </Select>
-        </Form.Item>
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit"
-          style={{padding: '0rem 6rem', margin: '0rem -8rem'}}
-          className='form-btn'>
-            Get a Quote Now
-          </Button>
-        </Form.Item>
-      </Form>}
+      </Form>
     </div>
   );
 };

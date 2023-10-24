@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Input, Select,InputNumber, Steps } from 'antd';
 import { LoginOutlined } from '@mui/icons-material';
-import income from '../../../../assets/About/income.png'
+import income from '../../../assets/About/income.png'
 import ComboBox from './AutoComp';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
+
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -44,10 +45,16 @@ const App = () => {
     setCurr(2);
   }
   const finishBtn=()=>{
-   const data = {...loginDetails,...profileDetails}
-   axios.post("http://localhost:3000/PostBike", {
+   let data = {...loginDetails,...profileDetails}
+   axios.post("http://localhost:3000/carPost", {
     data
   })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
   }
   const forms = [
     <LoginForm onFinish={onFinishLoginForm} initialValues={updateValueLogin}/>,
@@ -66,16 +73,20 @@ const App = () => {
     }
   }
   return (
-    <div style={{ border: '1px solid #00bcf9', padding: '1rem 5rem', borderRadius: '10px' }}>
+    <div>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
         <h3>Let's get connected</h3>
+        <h1 style={{textAlign: 'start', fontSize: '1.2rem', fontWeight: '600', marginLeft: '1.6rem'}}>For Personal Car</h1>
+      </div>
+      <div>
+        
       </div>
       <div className='App'>
         <Steps style={{padding: '32px 16px'}}
         onChange= {setCurr}
         current={curr}>
-          <Steps.Step title="Bike Info" disabled={isStepDisabled(0)} icon={<LoginOutlined/>}/>
+          <Steps.Step title="Car Info" disabled={isStepDisabled(0)} icon={<LoginOutlined/>}/>
           <Steps.Step title="User Info" disabled={isStepDisabled(1)} icon={<LoginOutlined/>}/>
           <Steps.Step title="Finsih" disabled={isStepDisabled(2)} icon={<LoginOutlined/>}/>
         </Steps>
@@ -86,43 +97,46 @@ const App = () => {
 };
 function LoginForm({onFinish, initialValues}){
   
-  const [bikeData,setBikeData]=useState([])
-  const [bikeName, setBikeName] = useState()
-  const [bikeYear, setBikeYear]= useState()
-  const [bikeEngine, setBikeEngine]= useState()
-  const [bikePrize, setBikePrize] = useState()
-  const [bikeType, setBikeType]= useState([])
+  const [carData,setCarData]=useState([])
+  const [carName, setCarName] = useState()
+  const [carYear, setCarYear]= useState()
+  const [carModel, setCarModel]= useState()
+  const [carPrize, setCarPrize] = useState()
+  const [carType, setCarType]= useState([])
   useEffect(()=>{
-    const val = axios.get("http://localhost:3000/bike")
-    val.then(res=>setBikeData(res.data.message[0].bikeData))
+    const val = axios.get("http://localhost:3000/car")
+    val.then(res=>setCarData(res.data.message[0].carData))
   },[])
   let updateValue = {
-    bikeEngine,
-    bikeName,
-    bikeYear,
-    bikePrize
+    carModel,
+    carName,
+    carYear,
+    carPrize
   }
 
-  const nameBike=bikeData.map((v,i)=>(v.bikeName))
+  console.log(carPrize)
 
-  function handleChangeBikeName(e){
-    setBikeName(e)
+  const nameCar=carData.map((v,i)=>(v.carName))
+
+  function handleChangeCarName(e){
+    setCarName(e)
   }
   function handleChangeYear(e){
-    setBikeYear(e)
+    setCarYear(e)
   } 
   function handleChangeModel(e){
-    setBikeEngine(e)
+    setCarModel(e)
   }
-  let bikeTypeI=-1
-  if(bikeName){
-    bikeTypeI=bikeData.findIndex(v=>bikeName == v.bikeName)
+  let carTypeI=-1
+  if(carName){
+    carTypeI=carData.findIndex(v=>carName == v.carName)
   }
 
   useEffect(()=>{
-      setBikeType(bikeData[bikeTypeI]?.details.map(v=>((v.engine))))
-  },[bikeName])
-  const year =(bikeData[bikeTypeI]?.details[0].years)
+      setCarType(carData[carTypeI]?.details.map(v=>((v.modelName))))
+      console.log('basit')
+  },[carName])
+  const year =(carData[carTypeI]?.details[0].years)
 
   
   return(
@@ -139,10 +153,10 @@ function LoginForm({onFinish, initialValues}){
         }}
       >
         <Form.Item>
-          <ComboBox  label={"select manufacturer"} data={nameBike}  handleChange={handleChangeBikeName}/>
+          <ComboBox  label={"select manufacturer"} data={nameCar}  handleChange={handleChangeCarName}/>
         </Form.Item>
         <Form.Item>
-           <ComboBox label={'select engine'} data={bikeType ? bikeType : []} handleChange={handleChangeModel}/>
+           <ComboBox label={'select model'} data={carType ? carType : []} handleChange={handleChangeModel}/>
         </Form.Item>
         <Form.Item>
              <ComboBox label={'select manufacturing year'} data={year ? year : []} handleChange={handleChangeYear}/>
@@ -150,11 +164,11 @@ function LoginForm({onFinish, initialValues}){
         <Form.Item> 
         <TextField
         id="outlined-number"
-        label="Value of bike"
+        label="Value of car"
         type="number"
         style={{width:'21rem'}}
-        InputProps={{ inputProps: { min: 40000, max: 1000000 } }}
-        onBlur={(e)=> setBikePrize(e.target.value)}
+        InputProps={{ inputProps: { min: 400000, max: 40000000 } }}
+        onBlur={(e)=> setCarPrize(e.target.value)}
         required
       />
         </Form.Item>
@@ -218,6 +232,7 @@ function ProfileForm({onFinish,  initialValues}){
         <Button type="primary" htmlType="submit"
           style={{padding: '0rem 4rem', fontWeight: '600'}}
           className='form-btn'
+          InputProps={{ inputProps: { min: 0} }}
           onClick={()=>(phone) ? initialValues({...updateValue}) : alert("Number must have 11 digit")}>
             Continue
           </Button>

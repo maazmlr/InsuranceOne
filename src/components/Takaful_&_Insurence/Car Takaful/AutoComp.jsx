@@ -13,7 +13,7 @@ export default function ComboBox({label,data, handleChange}) {
       disablePortal
       id="combo-box-demo"
       options={data}
-      style={{width:"20rem",height:"3rem",marginBottom:'2rem'}}
+      style={{width:"21rem",height:"3rem",marginBottom:'2rem'}}
       renderInput={(params) => <TextField {...params} label={label} onBlur={()=>handleChange? handleChange(params.inputProps.value): ''} required/>}
     />
   );

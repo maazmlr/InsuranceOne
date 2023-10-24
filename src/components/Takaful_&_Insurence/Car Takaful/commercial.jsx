@@ -31,20 +31,25 @@ const App = () => {
   console.log("LoginDetails",loginDetails)
   console.log("profileDetails",profileDetails)
   const onFinishLoginForm = (values) => {
-    setCurr(1);
+    
   };
   const onFinishProfileForm = (values) => {
-    setCurr(2);
+    
   };
   const updateValueLogin=(values)=>{
     setLoginDetails(values)
+    setCurr(1);
   }
   const updateValueProfile=(values)=>{
     setProfileDetails(values)
+    setCurr(2);
   }
   const finishBtn=()=>{
    const data = {...loginDetails,...profileDetails}
-   console.log(data)
+   axios.post("http://localhost:3000/commercialPost", {
+    data
+  })
+  console.log(data)
   }
   const forms = [
     <LoginForm onFinish={onFinishLoginForm} initialValues={updateValueLogin}/>,
@@ -53,27 +58,31 @@ const App = () => {
 ]
   const isStepDisabled=(stepNumber)=>{
     if(stepNumber === 0){
-      return false;
+      return false || Profile === null
     }
     if(stepNumber === 1){
-      return details === null 
+      return details === null || Profile === null
     }
     if(stepNumber === 2){
       return details === null || Profile === null
     }
   }
   return (
-    <div style={{ border: '1px solid #00bcf9', padding: '1rem 5rem', borderRadius: '10px' }}>
+    <div>
       <div className='car-form'>
         <img src={income} style={{ width: "5rem", height: "5rem" }} />
         <h3>Let's get connected</h3>
+        <h1 style={{textAlign: 'start', fontSize: '1.2rem', fontWeight: '600', marginLeft: '1.6rem'}}>For Commercial Cars</h1>
+      </div>
+      <div>
+        
       </div>
       <div className='App'>
         <Steps style={{padding: '32px 16px'}}
         onChange= {setCurr}
         current={curr}>
-          <Steps.Step title="Login" disabled={isStepDisabled(0)} icon={<LoginOutlined/>}/>
-          <Steps.Step title="Profile" disabled={isStepDisabled(1)} icon={<LoginOutlined/>}/>
+          <Steps.Step title="Car Info" disabled={isStepDisabled(0)} icon={<LoginOutlined/>}/>
+          <Steps.Step title="User Info" disabled={isStepDisabled(1)} icon={<LoginOutlined/>}/>
           <Steps.Step title="Finsih" disabled={isStepDisabled(2)} icon={<LoginOutlined/>}/>
         </Steps>
         {forms[curr]}
@@ -90,7 +99,7 @@ function LoginForm({onFinish, initialValues}){
   const [carPrize, setCarPrize] = useState()
   const [carType, setCarType]= useState([])
   useEffect(()=>{
-    const val = axios.get("http://localhost:3000/car")
+    const val = axios.get("http://localhost:3000/commercialCar")
     val.then(res=>setCarData(res.data.message[0].carData))
   },[])
   let updateValue = {
@@ -100,10 +109,7 @@ function LoginForm({onFinish, initialValues}){
     carPrize
   }
 
-  console.log(carPrize)
-
   const nameCar=carData.map((v,i)=>(v.carName))
-
   function handleChangeCarName(e){
     setCarName(e)
   }
@@ -120,11 +126,10 @@ function LoginForm({onFinish, initialValues}){
 
   useEffect(()=>{
       setCarType(carData[carTypeI]?.details.map(v=>((v.modelName))))
-      console.log('basit')
   },[carName])
   const year =(carData[carTypeI]?.details[0].years)
 
-  
+  console.log(nameCar)
   return(
     <Form
         {...layout}
@@ -152,15 +157,15 @@ function LoginForm({onFinish, initialValues}){
         id="outlined-number"
         label="Value of car"
         type="number"
-        style={{width:'20rem'}}
-        InputProps={{ inputProps: { min: 400000, max: 40000000 } }}
+        style={{width:'21rem'}}
+        InputProps={{ inputProps: { min: 100000, max: 40000000 } }}
         onBlur={(e)=> setCarPrize(e.target.value)}
         required
       />
         </Form.Item>
         <Form.Item {...tailLayout}>
         <Button type="primary" htmlType='submit'
-          style={{padding: '0rem 2rem'}}
+          style={{padding: '0rem 4rem', fontWeight: '600'}}
           className='form-btn'
           onClick={()=> initialValues({...updateValue})}>
             Continue
@@ -173,6 +178,7 @@ function ProfileForm({onFinish,  initialValues}){
   const [fullName, setFullName] = useState()
   const [email, setEmail] = useState()
   const [phone, setPhone] = useState()
+  console.log(typeof(phone))
   const updateValue = {
     fullName,
     email,
@@ -192,7 +198,7 @@ function ProfileForm({onFinish,  initialValues}){
       <TextField
         label="Full name"
         type={"text"}
-        style={{width: '20rem'}}
+        style={{width: '21rem'}}
         onChange={(e)=>setFullName(e.target.value)}
       required/>
     </Form.Item>
@@ -200,26 +206,27 @@ function ProfileForm({onFinish,  initialValues}){
       <TextField
         label="Email"
         type={"email"}
-        style={{width: '20rem'}}
+        style={{width: '21rem'}}
         onChange={(e)=>setEmail(e.target.value)}
       required/>
     </Form.Item>
     <Form.Item>
       <TextField
         id="outlined-number"
-        label="Value of car"
+        label="Phone number"
         type="number"
-        style={{width:'20rem'}}
-        onChange={(e)=>setPhone(e.target.value)}
+        InputProps={{ inputProps: { min: 0} }}
+        style={{width:'21rem'}}
+        onChange={(e)=>(e.target.value.length == 11) ? setPhone(e.target.value) : null}
         required
       />
     </Form.Item>
     <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit"
-          style={{padding: '0rem 2rem'}}
+          style={{padding: '0rem 4rem', fontWeight: '600'}}
           className='form-btn'
-          onClick={()=>initialValues({...updateValue})}>
-            See Plans
+          onClick={()=>(phone) ? initialValues({...updateValue}) : alert("Number must have 11 digit")}>
+            Continue
           </Button>
         </Form.Item>
     </Form>
@@ -228,7 +235,7 @@ function ProfileForm({onFinish,  initialValues}){
 function Finish({onFinish}){
   return(
     <Button type="primary" htmlType="submit"
-          style={{padding: '0rem 2rem'}}
+    style={{padding: '0rem 4rem', fontWeight: '600'}}
           className='form-btn'
           onClick={()=>onFinish()}>
             See Plan

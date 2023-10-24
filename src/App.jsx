@@ -19,6 +19,8 @@ import UncontrolledExample from './components/Takaful_&_Insurence/TestCarousel';
 import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayout';
 import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
 import AutoComp from './components/Takaful_&_Insurence/Car Takaful/AutoComp';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -43,6 +45,10 @@ function App() {
     </Route >
 
   ))
+
+  useEffect(()=>{
+    axios.get('http://localhost:3000/')
+  },[])
 
 return(
     

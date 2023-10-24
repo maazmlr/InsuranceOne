@@ -2,11 +2,12 @@ import car from '../../../assets/Takaful/car.avif'
 import income from '../../../assets/About/income.png'
 import Card from 'react-bootstrap/Card';
 import bg from '../../../assets/Takaful/card.jpg'
-import Form from './form';
+import Form from './personal';
 import Button from 'react-bootstrap/Button';
 import Collapse from './carCollapse';
 import best from '../../../assets/Takaful/best.png'
 import claim from '../../../assets/Takaful/claim.png'
+import Tab from './tab'
 function CAR() {
     return (
         <div>
@@ -50,7 +51,7 @@ function CAR() {
                     </div>
                 </div>
                 <div>
-                    <Form />
+                    <Tab />
                 </div>
             </div>
             <div className='card-insurance-header'>

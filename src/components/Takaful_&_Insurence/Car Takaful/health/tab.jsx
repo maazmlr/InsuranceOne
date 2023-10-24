@@ -5,11 +5,12 @@ import family from '../../../../assets/Takaful/family.png'
 import parents from '../../../../assets/Takaful/parents.png'
 import Form from './form'
 import Form1 from './form1'
+import Form2 from './form2'
 const App = () => {
   const [size, setSize] = useState('small');
   const pic = [myself, family, parents]
   const name = ["Myself", "Family", "Parents"]
-  const arr = [<Form/>, <Form1/>, <Form1/>]
+  const arr = [<Form/>, <Form1/>, <Form2/>]
   const onChange = (e) => {
     setSize(e.target.value);
   };

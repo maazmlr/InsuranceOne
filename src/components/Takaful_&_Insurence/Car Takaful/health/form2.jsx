@@ -28,8 +28,8 @@ const App = () => {
   const onGenderChange = (value) => {
   };
   const onFinish = (values) => {
-    console.log(values)
-    axios.post('http://localhost:3000/familyInsurance', {
+    console.log("values-->", values);
+    axios.post('http://localhost:3000/parentsInsurance', {
       values
     }).then(res=> console.log(res))
   };
@@ -40,23 +40,13 @@ const App = () => {
   const [fullName, setFullName] = useState()
   const [email, setEmail] = useState()
   const [phone, setPhone] = useState()
-  const [userAge, setUserAge] = useState()
+  const [parentsAge, setParentsAge] = useState()
   const [cash, setCash] = useState()
-  const [spouseAge, setSpouseAge] = useState()
-  const [childAges, setChildAges] = useState()
-  let childrens = childAges?.split(",")
-  let childrensDetails = {};
-  childrens?.map((v,i)=>{
-    let childNo = `Child${i+1}`
-    childrensDetails[childNo] = v
-  })
   let updateValue = {
     fullName,
     email,
     phone,
-    userAge,
-    spouseAge,
-    childrensDetails,
+    parentsAge,
     "insurancePrize": cash
   }
   const fields = function () {
@@ -78,7 +68,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <h1 style={{ fontSize: '1.8rem', fontWeight: '600', textAlign: 'start', margin: '1rem 0 0 0', letterSpacing: '1px' }}>Family Insurance</h1>
+        <h1 style={{ fontSize: '1.8rem', fontWeight: '600', textAlign: 'start', margin: '1rem 0 0 0', letterSpacing: '1px' }}>Parents Insurance</h1>
         <p style={{ fontSize: '1rem', fontWeight: '600', textAlign: 'start', margin: '0.2rem 0 1rem 0', letterSpacing: '0px' }}>Get a plan in just simple steps!</p>
       </div>
       <Form
@@ -128,50 +118,14 @@ const App = () => {
         >
           <TextField
             id="outlined-number"
-            label="Select your age"
+            label="Select your parents age"
             type="number"
             style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
-            onBlur={(e) => setUserAge(e.target.value)}
+            InputProps={{ inputProps: { min: 45, max: 90 } }}
+            onBlur={(e) => setParentsAge(e.target.value)}
             required
           />
         </Form.Item>
-        <Form.Item
-          rules={[
-            {
-              required: true,
-
-            },
-          ]}
-        >
-          <TextField
-            id="outlined-number"
-            label="Select spouse age (if no spouse leave empty)"
-            type="number"
-            style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
-            onBlur={(e) => setSpouseAge(e.target.value)}
-          />
-        </Form.Item>
-        <p style={{fontSize: '0.55rem', marginBottom: '0.5rem'}}>If no child leave empty</p>
-        <Form.Item
-          rules={[
-            {
-              required: true,
-
-            },
-          ]}
-        >
-          <TextField
-            id="outlined-number"
-            label="Ages of Child (5,3,6,7)"
-            type="text"
-            style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
-            onBlur={(e) => setChildAges(e.target.value)}
-          />
-        </Form.Item>
-        <p style={{fontSize: '0.55rem', marginTop:'-1.2rem', marginBottom: '1rem'}}>Add multiple ages separated by comma (,)</p>
         <Form.Item>
           <TextField
             id="outlined-number"
@@ -187,7 +141,7 @@ const App = () => {
           <Button type="primary" htmlType="submit"
             style={{ margin: '0rem 0rem' }}
             className='form-btn'
-            onClick={() => (fullName && email && phone && userAge && cash) ? onFinish({ ...updateValue }) : alert("Number must have 11 digit")}>
+            onClick={() => (fullName && email && phone && parentsAge && cash) ? onFinish({ ...updateValue }) : alert("Number must have 11 digit")}>
             Get a Plan Now
           </Button>
         </Form.Item>
