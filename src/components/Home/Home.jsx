@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
     <Section1/>
-    <Promotions/>
+    {/* <Promotions/> */}
     <SixSteps/>
     <AboutCard/>
     <Faq/>

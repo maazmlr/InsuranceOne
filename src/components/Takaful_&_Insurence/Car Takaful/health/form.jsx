@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Form, Input, Select, InputNumber, DatePicker, } from 'antd';
-import myself from '../../../../assets/Takaful/myself.png'
-import family from '../../../../assets/Takaful/family.png'
-import parents from '../../../../assets/Takaful/parents.png'
 import TextField from '@mui/material/TextField';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import axios from 'axios'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -25,29 +27,32 @@ const App = () => {
   const [form] = Form.useForm();
   const onGenderChange = (value) => {
   };
+  const navigate = useNavigate();
   const onFinish = (values) => {
-    console.log("values-->",values);
-    axios.post('http://localhost:3000/myselfInsurance', {
-      values
-    }).then(res=> console.log(res))
-    
+      axios.post('http://localhost:3000/myselfInsurance', {
+        values,
+      }).then(function (response) {
+        localStorage.setItem("myselfHealthFormData", JSON.stringify(response.data.message))
+        Swal.fire(
+          'Thank You!',
+          'Our Team will contact you soon!',
+          'success'
+        );
+        navigate('/');
+      })
+        .catch(function (error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Our team working on that',
+          })
+        });
+
+
   };
   const onReset = () => {
     form.resetFields();
   };
-  const [value, setValue] = useState(true);
-  const [fullName, setFullName] = useState()
-  const [email, setEmail] = useState()
-  const [phone, setPhone] = useState()
-  const [age, setAge] = useState()
-  const [cash, setCash] = useState()
-  let updateValue = {
-    fullName,
-    email,
-    phone,
-    age,
-    "insurancePrize": cash
-  }
   return (
     <div>
       <div>
@@ -57,6 +62,7 @@ const App = () => {
       <Form
         {...layout}
         form={form}
+        onFinish={onFinish}
         name="control-hooks"
         style={{
           marginTop: 20,
@@ -65,33 +71,36 @@ const App = () => {
           marginRight: 10
         }}
       >
-        <Form.Item>
+        <Form.Item
+        name={['fullName']}>
           <TextField
             label="Full name"
             type={"text"}
             style={{ width: '21rem' }}
-            onChange={(e) => setFullName(e.target.value)}
             required />
         </Form.Item>
-        <Form.Item>
+        <Form.Item
+        name={['email']}>
           <TextField
             label="Email"
             type={"email"}
             style={{ width: '21rem' }}
-            onChange={(e) => setEmail(e.target.value)}
             required />
         </Form.Item>
-        <Form.Item>
-          <TextField
-            id="outlined-number"
-            label="Phone number"
-            type="number"
-            style={{ width: '21rem' }}
-            onChange={(e) => (e.target.value.length == 11) ? setPhone(e.target.value) : null}
-            required
-          />
+        <Form.Item
+        name={['phone']}
+        >
+          <PhoneInput
+            inputStyle={{ width: '21rem', height: '3rem', color: 'green' }}
+            inputProps={{
+              name: 'phone',
+              required: true,
+            }}
+            country={Number}
+            rules={{ required: true }} />
         </Form.Item>
         <Form.Item
+        name={['age']}
           rules={[
             {
               required: true,
@@ -105,26 +114,24 @@ const App = () => {
             type="number"
             style={{ width: '21rem' }}
             InputProps={{ inputProps: { min: 18, max: 75 } }}
-            onBlur={(e) => setAge(e.target.value)}
             required
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item
+        name={['insurancePrize']}>
           <TextField
             id="outlined-number"
             label="Select Hospitalization Limit (PKR)"
             type="number"
             style={{ width: '21rem' }}
             InputProps={{ inputProps: { min: 60000, max: 1000000 } }}
-            onBlur={(e) => setCash(e.target.value)}
             required
           />
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit"
             style={{ margin: '0rem 0rem' }}
-            className='form-btn'
-            onClick={()=> (fullName && email && phone && age && cash) ? onFinish({...updateValue}) : alert("Number must have 11 digit")}>
+            className='form-btn'>
             Get a Plan Now
           </Button>
         </Form.Item>

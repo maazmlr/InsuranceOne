@@ -34,7 +34,7 @@ function App() {
     <Route path='about' element={<About/>} />
     <Route path='insurance' element={<InsuranceLayout/>}>
     
-    <Route index element={<CAR/>} />
+    <Route path='car' element={<CAR/>} />
     <Route path='bike' element={<BIKE/>} />
     <Route path='life' element={<LIFE/>} />   
     <Route path='health' element={<HEALTH/>} />  

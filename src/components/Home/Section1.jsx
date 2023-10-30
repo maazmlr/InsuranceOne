@@ -9,9 +9,6 @@ export default function Section1() {
     <section className='home-sec-1'>
         <img src={img1} alt="" style={{position:"absolute",top:"0px",right:"0",height:"20rem"}} />
         <img src={img2} alt="" style={{position:"absolute",bottom:"0px",left:"0",height:"30rem"}} />
-
-        
-
         <h1 className="sec1-head" style={{position:'relative', zIndex: '99996'}}>
             Oneclick Digital Insurance
         </h1>

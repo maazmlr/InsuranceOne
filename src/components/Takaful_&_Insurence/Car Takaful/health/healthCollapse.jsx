@@ -7,7 +7,7 @@ function Collapse() {
     const [visible, setVisible] = useState(false)
     return (
         <>
-            <CButton className="mr-3 ml-3 mb-3 hovering" style={{ fontSize: '1.5rem', backgroundColor: '#0163ea', width: '98%', padding: '0.5rem', fontWeight: '400', border: 'none', wordSpacing: '4px', letterSpacing: '1px' }} onClick={() => setVisible(!visible)} aria-expanded={visible} aria-controls="collapseWidthExample">{visible? `What We Are Covering In Health And Accident Insurance Plan` : `Click Me`}</CButton>
+            <CButton className="mr-3 ml-3 mb-3 hovering" style={{ fontSize: '1.5rem', backgroundColor: '#0163ea', width: '95%', padding: '0.5rem', fontWeight: '400', border: 'none', wordSpacing: '4px', letterSpacing: '1px' }} onClick={() => setVisible(!visible)} aria-expanded={visible} aria-controls="collapseWidthExample">{visible? `What We Are Covering In Health And Accident Insurance Plan` : `Click Me`}</CButton>
             <div>
                 <CCollapse id="collapseWidthExample" vertical visible={visible}>
                     <CCard className='m-3'>

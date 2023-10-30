@@ -6,7 +6,7 @@ import service from "../../assets/About/services.png"
 
 function AboutCard() {
   return (
-    <div style={{padding: '3rem 0 6rem 0', background: 'whitesmoke'}}>
+    <div style={{padding: '2rem 0 6rem 0', background: 'whitesmoke'}} className='aboutcardRes'>
     <h1 style={{textAlign:'center', fontSize: '1.5rem', margin: '0 0 2rem 0', fontWeight: '700'}}>Three Steps To Buying the Right Takaful & Insurance Plan</h1>
     <CardGroup>
       <Card border='none'	style={{background: 'whitesmoke'}}>

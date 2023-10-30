@@ -4,7 +4,11 @@ import { LoginOutlined } from '@mui/icons-material';
 import income from '../../../../assets/About/income.png'
 import ComboBox from '../AutoComp';
 import TextField from '@mui/material/TextField';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import axios from 'axios';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const { Option } = Select;
 const layout = {
@@ -28,28 +32,41 @@ const App = () => {
   const [loginDetails, setLoginDetails] = useState();
   const [profileDetails, setProfileDetails] = useState();
   const [Profile, setProfile] = useState(null)
-  console.log("LoginDetails", loginDetails)
-  console.log("profileDetails", profileDetails)
   const onFinishLoginForm = (values) => {
+    setCurr(1);
 
   };
   const onFinishProfileForm = (values) => {
-
+    setCurr(2);
   };
   const updateValueLogin = (values) => {
     setLoginDetails(values)
-    setCurr(1);
   }
   const updateValueProfile = (values) => {
     setProfileDetails(values)
-    setCurr(2);
+    
   }
+  const navigate = useNavigate();
   const finishBtn = () => {
     let data = { ...loginDetails, ...profileDetails }
-    console.log(data)
     axios.post('http://localhost:3000/lifeInsurance', {
       data
-    }).then(res=> console.log(res))
+    }).then(function (response) {
+      localStorage.setItem("lifeFormData", JSON.stringify(response.data.message))
+      Swal.fire(
+        'Thank You!',
+        'Our Team will contact you soon!',
+        'success'
+      );
+      navigate('/');
+    })
+      .catch(function (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong! Our team working on that',
+        })
+      });
   }
   const forms = [
     <LoginForm onFinish={onFinishLoginForm} initialValues={updateValueLogin} />,
@@ -152,14 +169,16 @@ function LoginForm({ onFinish, initialValues }) {
           required />
       </Form.Item>
       <Form.Item>
-        <TextField
-          id="outlined-number"
-          label="Your phone number"
-          type="number"
-          style={{ width: '21rem' }}
-          onChange={(e) => (e.target.value.length == 11) ? setPhone(e.target.value) : null}
-          required
-        />
+        <PhoneInput
+        inputStyle={{width: '21rem', height: '3rem',color:'green'}}
+        inputProps={{
+          name: 'phone',
+          required: true,
+        }}
+          country={Number}
+          rules={{ required: true }}
+          value={phone}
+          onChange={setPhone}/>
       </Form.Item>
       <Form.Item>
         <ComboBox label={'Profession'} data={pro} handleChange={handleChangeProfession} />
@@ -196,7 +215,7 @@ function LoginForm({ onFinish, initialValues }) {
         <Button type="primary" htmlType='submit'
           style={{ padding: '0rem 4rem', fontWeight: '600' }}
           className='form-btn'
-          onClick={() => (fullName && email && phone && profession && marital) ? initialValues({ ...updateValue }) : alert("Number must have 11 digit")}>
+          onClick={() =>initialValues({ ...updateValue })}>
           Continue
         </Button>
       </Form.Item>
