@@ -31,16 +31,12 @@ const App = () => {
   };
   const navigate = useNavigate();
   const onFinish = (values) => {
-    let childrensDetails = {};
-    let updateValue = values.childrensDetails?.split(",");
-    updateValue?.map((v, i) => {
-    let childNo = `Child${i + 1}`
-    childrensDetails[childNo] = v
-  })
-  let updateData = {
-    ...values,
-    childrensDetails
-  }
+    let updateValue =values.childrensDetails?.length !== 0 ? values.childrensDetails?.split(",") : "";
+    delete values.childrensDetails
+    let updateData = {
+      ...values,
+      children_Age: updateValue
+    }
     axios.post('http://localhost:3000/familyInsurance', {
       updateData
     }).then(function (response) {
@@ -50,7 +46,7 @@ const App = () => {
         'Our Team will contact you soon!',
         'success'
       );
-      navigate('/');
+      // navigate('/');
     })
       .catch(function (error) {
         Swal.fire({
@@ -121,7 +117,7 @@ const App = () => {
         }}
       >
         <Form.Item
-        name={['fullName']}>
+          name={['fullName']}>
           <TextField
             label="Your name"
             type={"text"}
@@ -129,7 +125,7 @@ const App = () => {
             required />
         </Form.Item>
         <Form.Item
-        name={['email']}>
+          name={['email']}>
           <TextField
             label="Your email"
             type={"email"}
@@ -137,7 +133,7 @@ const App = () => {
             required />
         </Form.Item>
         <Form.Item
-        name={['phone']}>
+          name={['phone']}>
           <PhoneInput
             inputStyle={{ width: '21rem', height: '3rem', color: 'green' }}
             inputProps={{
@@ -161,7 +157,7 @@ const App = () => {
             label="Select your age"
             type="number"
             style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
+            InputProps={{ inputProps: { min: 18, max: 59 } }}
             required
           />
         </Form.Item>
@@ -173,7 +169,7 @@ const App = () => {
             label="Select spouse age (if no spouse leave empty)"
             type="number"
             style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
+            InputProps={{ inputProps: { min: 18, max: 59 } }}
           />
         </Form.Item>
         <p style={{ fontSize: '0.55rem', marginBottom: '0.5rem' }}>If no child leave empty</p>
@@ -185,12 +181,12 @@ const App = () => {
             label="Ages of Child (5,3,6,7)"
             type="text"
             style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 18, max: 75 } }}
+            InputProps={{ inputProps: { min: 0, max: 59 } }}
           />
         </Form.Item>
         <p style={{ fontSize: '0.55rem', marginTop: '-1.2rem', marginBottom: '1rem' }}>Add multiple ages separated by comma (,)</p>
         <Form.Item
-        name={['insurancePrize']}>
+          name={['insurancePrize']}>
           <TextField
             id="outlined-number"
             label="Select Hospitalization Limit (PKR)"

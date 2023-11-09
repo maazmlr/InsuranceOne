@@ -20,6 +20,9 @@ import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayou
 import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
 import AutoComp from './components/Takaful_&_Insurence/Car Takaful/AutoComp';
 import { useEffect } from 'react';
+import Plans from './components/Plans/plans';
+import PlansMyself from './components/Takaful_&_Insurence/Car Takaful/health/planMyself';
+import PlanParents from './components/Takaful_&_Insurence/Car Takaful/health/planParents';
 import axios from 'axios';
 
 
@@ -39,8 +42,9 @@ function App() {
     <Route path='life' element={<LIFE/>} />   
     <Route path='health' element={<HEALTH/>} />  
     </Route> 
-    <Route path='signIn' element={<Signin/>} />  
-    
+    <Route path='signIn' element={<Signin/>} /> 
+    <Route path='/insurance/plansMyself' element={<PlansMyself/>} />
+    <Route path='/insurance/plansParents' element={<PlanParents/>} />
     <Route path='signup' element={<SignUp/>} />
     </Route >
 

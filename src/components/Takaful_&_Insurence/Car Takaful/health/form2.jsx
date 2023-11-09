@@ -39,7 +39,7 @@ const App = () => {
         'Our Team will contact you soon!',
         'success'
       );
-      navigate('/');
+      navigate('/insurance/plansParents');
     })
       .catch(function (error) {
         Swal.fire({
@@ -121,7 +121,7 @@ const App = () => {
             label="Select your parents age"
             type="number"
             style={{ width: '21rem' }}
-            InputProps={{ inputProps: { min: 45, max: 90 } }}
+            InputProps={{ inputProps: { min: 45, max: 59 } }}
             required
           />
         </Form.Item>

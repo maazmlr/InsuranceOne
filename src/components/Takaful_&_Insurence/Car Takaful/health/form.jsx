@@ -38,7 +38,7 @@ const App = () => {
           'Our Team will contact you soon!',
           'success'
         );
-        navigate('/');
+        navigate('/insurance/plansMyself')
       })
         .catch(function (error) {
           Swal.fire({
@@ -47,8 +47,6 @@ const App = () => {
             text: 'Something went wrong! Our team working on that',
           })
         });
-
-
   };
   const onReset = () => {
     form.resetFields();

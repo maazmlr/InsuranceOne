@@ -22,19 +22,23 @@ class Navbar extends Component {
             <div>
                 <nav>
                     <img src={logoW} style={{ width: "5.5rem" }} className='bas' />
+
                     <div>
+
                         <ul id='navbar' className={this.state.clicked ? '#navbar active' : '#navbar'}>
-                            <img src={logo} style={{ width: "8rem", margin: '1rem auto 4rem auto' }} className='bas' />
+
+                            <img src={logo} style={{ width: "8rem", margin: '1rem auto 4rem auto' }} className='bas' onClick={this.handleClick} />
                             <li><NavLink onClick={this.handleClick} end to='/'>Home</NavLink></li>
+                            <i onClick={this.handleClick} style={{position: "absolute", top: "4%",left: "85%", fontSize: "2rem"}} className= 'fas fa-times bas'></i>
                             <li>
                                 <a> Takaful & Insurance ▾</a>
-                                <ul class="dropdown" style={{backgroundColor: "white",}}>
-                                    
-                                    <li><NavLink onClick={this.handleClick} end to="/insurance/car" style={{color: 'black'}}>Car Insurance</NavLink></li>
-                                    <li><NavLink onClick={this.handleClick} end to="/insurance/bike" style={{color: 'black'}}>Bike Insurance</NavLink></li>
-                                    <li><NavLink onClick={this.handleClick} end to="/insurance/health" style={{color: 'black'}}>Health Insurance</NavLink></li>
-                                    <li><NavLink onClick={this.handleClick} end to="#" style={{color: 'black'}}>Travel Insurance</NavLink></li>
-                                    <li><NavLink onClick={this.handleClick} end to="/insurance/life" style={{color: 'black'}}>Life Insurance</NavLink></li>
+                                <ul class="dropdown" style={{ backgroundColor: "white", }}>
+
+                                    <li><NavLink onClick={this.handleClick} end to="/insurance/car" style={{ color: 'black' }}>Car Insurance</NavLink></li>
+                                    <li><NavLink onClick={this.handleClick} end to="/insurance/bike" style={{ color: 'black' }}>Bike Insurance</NavLink></li>
+                                    <li><NavLink onClick={this.handleClick} end to="/insurance/health" style={{ color: 'black' }}>Health Insurance</NavLink></li>
+                                    <li><NavLink onClick={this.handleClick} end to="#" style={{ color: 'black' }}>Travel Insurance</NavLink></li>
+                                    <li><NavLink onClick={this.handleClick} end to="/insurance/life" style={{ color: 'black' }}>Life Insurance</NavLink></li>
                                 </ul>
                             </li>
                             <li><NavLink onClick={this.handleClick} end to='/contact'>Contact Us</NavLink></li>
@@ -47,7 +51,7 @@ class Navbar extends Component {
                         <NavLink onClick={this.handleClick} end to='/signIn'><button>Sign in</button></NavLink>
                     </div>
                     <div id="mobile" onClick={this.handleClick}>
-                        <i id='bars' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                        <i id='bars' className={this.state.clicked ? null : 'fas fa-bars'}></i>
                     </div>
                 </nav>
             </div>

@@ -587,6 +587,93 @@ a{
     background-size: cover;
     transition: 0.3s ease-in-out;
 }
+
+
+/* Plans */
+.Plans-Section1{
+  /* background-image: url('./assets/Plans/insurance-offer-bg.jpg'); */
+  background-repeat: no-repeat;
+  background-color: rgb(228, 234, 239);
+  background-size: cover;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 2rem;
+}
+.card-plan{
+  padding: 2rem 2rem
+}
+.card-plan-main{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card-plan-text{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+.card-plan-text p{
+  text-align: center;
+  border-bottom: 1px solid #00bbf9;
+  margin: 0.2rem 1.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 1rem;
+  word-spacing: 3px;
+}
+.btn-card{
+  background-color:  #015fea;
+  padding: 0.5rem 2rem;
+  color: white;
+  margin-top: 10%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.btn-card:hover{
+  opacity: 0.8;
+  transition: 0.3s ease-in-out;
+}
+.card1-plan{
+  padding: 1rem 5rem
+}
+.card1-plan-text, .card1-plan-div{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.buy-now-btn{
+  background-color: #015fea;
+  padding: 0.5rem 2rem;
+  color: white;
+  /* height: 100%; */
+  width: 10rem;
+  text-align: center;
+  margin-top: 6%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.buy-now-btn:hover{
+  opacity: 0.8;
+  transition: 0.3s ease-in-out;
+}
+.card1-plan-div div{
+ margin: 1rem 2rem;
+ font-weight: 500;
+}
+.img-plan{
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid #00bbf9;
+}
 @media only screen and (max-width: 600px) {
     *{
      font-size: 8px;
@@ -679,6 +766,24 @@ a{
     }
     .aboutcardRes{
       margin: 22rem  0 0 0;
+    }
+    .card1-plan,.card-plan{
+      padding: 2rem 0;
+    }
+    .card1-plan-text,  .card1-plan-div{
+      display: block;
+      padding: 0;
+    }
+    .card1-plan-div div{
+      margin: 1rem 0;
+    }
+    .buy-now-btn{
+      margin:0 auto 1rem auto;
+      display:block;
+    }
+    .img-plan{
+      width: 100%;
+      height: 20rem;
     }
   }
  
