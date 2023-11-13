@@ -51,13 +51,13 @@ const App = () => {
    axios.post("http://localhost:3000/PostBike", {
     data
   }).then(function (response) {
-    localStorage.setItem("bikeFormData", JSON.stringify(response.data.message))
+    localStorage.setItem("FormData", JSON.stringify(response.data.message))
     Swal.fire(
       'Thank You!',
       'Our Team will contact you soon!',
       'success'
     );
-    navigate('/')
+    navigate('/insurance/bikePlan')
   })
     .catch(function (error) {
       Swal.fire({

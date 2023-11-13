@@ -5,12 +5,11 @@ import Sec1 from '../../../Plans/section1'
 import axios from 'axios'
 
 
-function PlansMyself() {
+function PlansFamily() {
     const [data, setData] = useState({})
     const [data1, setData1] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/myselfInsurance', {
-
+        axios.get('http://localhost:3000/familyInsurance', {
         }).then(res => setData1(res.data.message))
         setData(JSON.parse(localStorage.getItem("FormData")))
     }, [])
@@ -26,15 +25,16 @@ function PlansMyself() {
     romm_board={value.entity.room_board}
     increase_lim={value.entity.Increase_limit}
     critical_ill={value.entity.Critical_illness_limit}
-    rupees={value.ageAmount}
+    rupees={value.totalAmount}
 />)
+    console.log(data.children_Age)
     return (
         <div>
             <Sec1 head={"Get Best Health Takaful & Insurance Deals in Pakistan"} para={"Protect your & loved ones' future with reliable life insurance plans"}/>
-            <Card name={data.fullName} heading={"Customer Details"} email={data.email} age={`User Age: ${data.age}`} phone={data.phone} prize={data.insurancePrize} />
+            <Card name={data.fullName} heading={"Customer Details"} email={data.email} age={`User Age: ${data.userAge}`} spouseAge={data.spouseAge} childrenAge={data.children_Age?.toString()} phone={data.phone} prize={data.insurancePrize} />
             {elements}
         </div>
     )
 }
 
-export default PlansMyself
+export default PlansFamily

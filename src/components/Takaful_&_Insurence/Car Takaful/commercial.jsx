@@ -53,13 +53,13 @@ const App = () => {
     axios.post("http://localhost:3000/commercialPost", {
       data
     }).then(function (response) {
-      localStorage.setItem("commercialCarFormData", JSON.stringify(response.data.message))
+      localStorage.setItem("FormData", JSON.stringify(response.data.message))
       Swal.fire(
         'Thank You!',
         'Our Team will contact you soon!',
         'success'
       );
-      navigate('/');
+      navigate('/insurance/commercialCarPlan');
     })
       .catch(function (error) {
         Swal.fire({
@@ -176,7 +176,7 @@ function LoginForm({ onFinish, initialValues }) {
           label="Value of car"
           type="number"
           style={{ width: '21rem' }}
-          InputProps={{ inputProps: { min: 100000, max: 40000000 } }}
+          InputProps={{ inputProps: { min: 400000, max: 40000000 } }}
           onBlur={(e) => setCarPrize(e.target.value)}
           required
         />

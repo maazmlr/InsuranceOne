@@ -1,8 +1,8 @@
 import './App.css'
-import {NextUIProvider} from '@nextui-org/react'
+import { NextUIProvider } from '@nextui-org/react'
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter,Route,RouterProvider,Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
 import Home from './components/Home/Home';
 import Promotions from './components/Home/Promotions';
@@ -19,47 +19,56 @@ import UncontrolledExample from './components/Takaful_&_Insurence/TestCarousel';
 import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayout';
 import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
 import AutoComp from './components/Takaful_&_Insurence/Car Takaful/AutoComp';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Plans from './components/Plans/plans';
 import PlansMyself from './components/Takaful_&_Insurence/Car Takaful/health/planMyself';
 import PlanParents from './components/Takaful_&_Insurence/Car Takaful/health/planParents';
+import PlansFamily from './components/Takaful_&_Insurence/Car Takaful/health/planFamily';
+import CommCarPlan from './components/Takaful_&_Insurence/Car Takaful/commercialPlan';
+import PersCarPlan from './components/Takaful_&_Insurence/Car Takaful/personalPlan';
+import BikePlan from './components/Takaful_&_Insurence/Car Takaful/bike/bikePlan';
 import axios from 'axios';
-
+import { MyContext } from './components/myContext';
 
 
 
 
 function App() {
-  const router=createBrowserRouter(createRoutesFromElements(
-    <Route element={<PageLayout/>}>
-    <Route path='/' element={<Home/>} />
-    <Route path='contact' element={<Contact/>} />
-    <Route path='about' element={<About/>} />
-    <Route path='insurance' element={<InsuranceLayout/>}>
-    
-    <Route path='car' element={<CAR/>} />
-    <Route path='bike' element={<BIKE/>} />
-    <Route path='life' element={<LIFE/>} />   
-    <Route path='health' element={<HEALTH/>} />  
-    </Route> 
-    <Route path='signIn' element={<Signin/>} /> 
-    <Route path='/insurance/plansMyself' element={<PlansMyself/>} />
-    <Route path='/insurance/plansParents' element={<PlanParents/>} />
-    <Route path='signup' element={<SignUp/>} />
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route element={<PageLayout />}>
+      <Route path='/' element={<Home />} />
+      <Route path='contact' element={<Contact />} />
+      <Route path='about' element={<About />} />
+      <Route path='insurance' element={<InsuranceLayout />}>
+
+        <Route path='car' element={<CAR />} />
+        <Route path='bike' element={<BIKE />} />
+        <Route path='life' element={<LIFE />} />
+        <Route path='health' element={<HEALTH />} />
+      </Route>
+      <Route path='signIn' element={<Signin />} />
+      <Route path='/insurance/plansMyself' element={<PlansMyself />} />
+      <Route path='/insurance/plansParents' element={<PlanParents />} />
+      <Route path='/insurance/plansFamily' element={<PlansFamily />} />
+      <Route path='/insurance/commercialCarPlan' element={<CommCarPlan />} />
+      <Route path='/insurance/personalCarPlan' element={<PersCarPlan />} />
+      <Route path='/insurance/bikePlan' element={<BikePlan />} />
+      <Route path='signup' element={<SignUp />} />
+
     </Route >
 
   ))
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:3000/')
-  },[])
+  }, [])
+  const [state, setState] = useState("");
+  return (
 
-return(
-    
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
 
 
-)
+  )
 
 }
 

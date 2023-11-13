@@ -32,7 +32,7 @@ const App = () => {
       axios.post('http://localhost:3000/myselfInsurance', {
         values,
       }).then(function (response) {
-        localStorage.setItem("myselfHealthFormData", JSON.stringify(response.data.message))
+        localStorage.setItem("FormData", JSON.stringify(response.data.message))
         Swal.fire(
           'Thank You!',
           'Our Team will contact you soon!',

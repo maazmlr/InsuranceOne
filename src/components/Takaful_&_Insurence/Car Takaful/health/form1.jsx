@@ -40,13 +40,13 @@ const App = () => {
     axios.post('http://localhost:3000/familyInsurance', {
       updateData
     }).then(function (response) {
-      localStorage.setItem("familyHealthFormData", JSON.stringify(response.data.message))
+      localStorage.setItem("FormData", JSON.stringify(response.data.message))
       Swal.fire(
         'Thank You!',
         'Our Team will contact you soon!',
         'success'
       );
-      // navigate('/');
+      navigate('/insurance/plansFamily')
     })
       .catch(function (error) {
         Swal.fire({

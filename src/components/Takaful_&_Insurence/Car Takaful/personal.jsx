@@ -52,13 +52,13 @@ const App = () => {
     axios.post("http://localhost:3000/carPost", {
       data
     }).then(function (response) {
-      localStorage.setItem("personalFormData", JSON.stringify(response.data.message))
+      localStorage.setItem("FormData", JSON.stringify(response.data.message))
       Swal.fire(
         'Thank You!',
         'Our Team will contact you soon!',
         'success'
       );
-      navigate('/');
+      navigate('/insurance/personalCarPlan');
     })
       .catch(function (error) {
         Swal.fire({
@@ -185,7 +185,7 @@ function LoginForm({ onFinish, initialValues }) {
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType='submit'
           style={{ padding: '0rem 4rem', fontWeight: '600' }}
-          className='form-btn'
+          className='form-btn'  
           onClick={() => initialValues({ ...updateValue })}>
           Continue
         </Button>
