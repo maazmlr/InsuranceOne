@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 import CustomizedSwitches from './switchBtn';
 import { useState } from 'react';
 import { MyContext } from '../myContext';
-function Card1({ heading, hospital, room_ent, pre_post_hosp, romm_board, critical_ill, increase_lim, rupees, img, tracker, para }) {
+import { Nav } from 'react-bootstrap';
+function Card1({ heading, hospital, room_ent, pre_post_hosp, romm_board, critical_ill, increase_lim, rupees, img, tracker, para, rate , data, type}) {
     const [state, setState] = useState(false)
+
     return (
         <div className='card1-plan'>
             <div className="card bg-base-100 shadow-xl" style={{ padding: "0rem 2rem" }}>
@@ -62,24 +64,33 @@ function Card1({ heading, hospital, room_ent, pre_post_hosp, romm_board, critica
                                     </div> : null
                             }
                             {
-                                tracker ?
+                                rate ?
                                 <div>
-                                    <p>Add Tracker</p>
-                                    <CustomizedSwitches/>
+                                    <p>Rate</p>
+                                    <p>{rate}%</p>
                                 </div>
                                 : null
                             }
+                            {
+                                tracker ?
+                                <div>
+                                    <p>Add Tracker</p>
+                                    <p><CustomizedSwitches label={tracker}/></p>
+                                </div>
+                                : null
+                            }
+                            
                         </div>
                         </MyContext.Provider>
                     </div>
                     <div>
                         <p style={{ textAlign: 'center', fontWeight: "500", fontSize: "2rem", margin: '2rem 0 1rem 0' }}>{
                         state ?
-                        rupees+15000 : 
+                        rupees+tracker : 
                         rupees
                         }-/PKR</p>
                         <div className='buy-now-btn'>
-                            <button>Buy Now</button>
+                            <NavLink to="/insurance/plan/checkout/:id" state={{ from:{... data, state, tracker, type}}} ><button>Buy Now</button></NavLink>
                         </div>
                     </div>
                 </div>

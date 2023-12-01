@@ -3,13 +3,14 @@ import Card from '../../../Plans/card'
 import Card1 from '../../../Plans/card1'
 import Sec1 from '../../../Plans/section1'
 import axios from 'axios'
-
+import ParentsPDF from './pdfParents'
+import localHost from '../../../../localHost'
 
 function PlanParents() {
     const [data, setData] = useState({})
     const [data1, setData1] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/parentsInsurance', {
+        axios.get(`${localHost}parentsInsurance`, {
 
         }).then(res => setData1(res.data.message))
         setData(JSON.parse(localStorage.getItem("FormData")))
@@ -27,11 +28,13 @@ function PlanParents() {
     increase_lim={value.entity.Increase_limit}
     critical_ill={value.entity.Critical_illness_limit}
     rupees={value.ageAmount}
+    data={value}
+    type={'health'}
 />)
     return (
         <div>
             <Sec1 head={"Get Best Health Takaful & Insurance Deals in Pakistan"} para={"Protect your & loved ones' future with reliable life insurance plans"}/>
-            <Card name={data.fullName} heading={"Customer Details"} email={data.email} age={`Parents Age: ${data.parentsAge}`} phone={data.phone} prize={data.insurancePrize} />
+            <Card pdf={<ParentsPDF/>} name={data.fullName} heading={"Customer Details"} email={data.email} age={`Parents Age: ${data.parentsAge}`} phone={data.phone} prize={data.insurancePrize} />
             {elements}
         </div>
     )

@@ -42,14 +42,14 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
 }));
 
 
-export default function CustomizedSwitches() {
+export default function CustomizedSwitches({label}) {
   const { state, setState } = useContext(MyContext);
   return (
     <FormGroup>
       <FormControlLabel
         control={<Android12Switch defaultChecked />}
-        label="15000"
-        style={{margin: '-1rem 2rem'}}
+        label={label}
+        style={{margin: '-1rem 0rem'}}
         checked={state}
         onChange={()=> setState(state=>!state)}
       />

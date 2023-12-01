@@ -1,6 +1,9 @@
-import pic from '../../assets/Plans/5-star-rating.png'
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-function Card({name, age, spouseAge, childrenAge, phone, prize, email, carName, carModel, carPrize, carYear, bikeName,  bikeModel,  bikePrize,  bikeYear, heading}) {
+
+function Card({pdf, name, age, spouseAge, childrenAge, phone, prize, email, carName, carModel, carPrize, carYear, bikeName,  bikeModel,  bikePrize,  bikeYear, heading, link}) {
+    const navigate = useNavigate();
     return (
         <div className='card-plan'>
             <div className="card bg-base-100 shadow-xl" style={{ padding: "0rem 2rem" }}>
@@ -25,7 +28,7 @@ function Card({name, age, spouseAge, childrenAge, phone, prize, email, carName, 
                             }
                             {
                                 bikePrize ? 
-                                <p>Bike Prize: {bikePrize}</p>
+                                <p>Bike Price: {bikePrize}</p>
                                 : null
                             }
                             {
@@ -45,7 +48,7 @@ function Card({name, age, spouseAge, childrenAge, phone, prize, email, carName, 
                             }
                             {
                                 carPrize ? 
-                                <p>Car Prize: {carPrize}</p>
+                                <p>Car Price: {carPrize}</p>
                                 : null
                             }
                             <p>User Name: {name}</p>
@@ -76,10 +79,12 @@ function Card({name, age, spouseAge, childrenAge, phone, prize, email, carName, 
                     </div>
                     <div>
                     <div className='btn-card'>
-                        <button>Edit Details</button>
+                        <button onClick={()=> navigate(-1)}>Edit Details</button>
                     </div>
                     <div className='btn-card'>
-                        <button>Download Quotes</button>
+                        <PDFDownloadLink document={pdf} fileName='Plan'>
+                        {({loading}) => (loading ? <button>Loading Document....</button>: <button>Download Quotes</button>)}
+                        </PDFDownloadLink>
                     </div>
                     </div>
                 </div>

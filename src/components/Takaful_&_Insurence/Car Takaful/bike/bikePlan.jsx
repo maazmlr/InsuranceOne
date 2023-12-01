@@ -4,6 +4,8 @@ import Sec1 from "../../../Plans/section1";
 import { useEffect, useState, useContext } from 'react'
 import { MyContext } from "../../../myContext";
 import axios from "axios";
+import BikePDF from "./bikePDF";
+import localHost from "../../../../localHost";
 
 function BikePlan() {
     const [state, setState] = useState(false);
@@ -11,7 +13,7 @@ function BikePlan() {
     const [data1, setData1] = useState([])
     console.log(state)
     useEffect(() => {
-        axios.get('http://localhost:3000/postBike', {
+        axios.get(`${localHost}postBike`, {
 
         }).then(res => setData1(res.data.message))
         setData(JSON.parse(localStorage.getItem("FormData")))
@@ -22,19 +24,21 @@ function BikePlan() {
                 img={value.image_url}
                 para={"Bike Takaful & Insurance"}
                 heading={value.company}
-                tracker={1}
+                tracker={12000}
                 rupees={value.bikeAmount}
-
+                rate={value.percentage}
+                data={value}
+                type={'bike'}
             />)
 
     return (
         <div>
             <Sec1 head={"Get Best Bike Takaful & Insurance Deals in Pakistan"}
             para={"Protect your Bike & loved ones' future with reliable Car insurance plans"}/>
-            <Card bikeName={data.bikeName} heading={"Bike Details"} bikeModel={data.bikeEngine} bikeYear={data.bikeYear} bikePrize={data.bikePrize} name={data.fullName} email={data.email} phone={data.phone} prize={data.insurancePrize} />
+            <Card pdf={<BikePDF/>} bikeName={data.bikeName} heading={"Bike Details"} bikeModel={data.bikeEngine} bikeYear={data.bikeYear} bikePrize={data.bikePrize} name={data.fullName} email={data.email} phone={data.phone} prize={data.insurancePrize} />
             {elements}
         </div>
     )
 }
 
-export default BikePlan
+export default BikePlan;

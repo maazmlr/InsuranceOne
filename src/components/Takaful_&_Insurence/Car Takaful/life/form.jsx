@@ -9,6 +9,7 @@ import 'react-phone-input-2/lib/style.css'
 import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import localHost from '../../../../localHost';
 
 const { Option } = Select;
 const layout = {
@@ -49,7 +50,7 @@ const App = () => {
   const navigate = useNavigate();
   const finishBtn = () => {
     let data = { ...loginDetails, ...profileDetails }
-    axios.post('http://localhost:3000/lifeInsurance', {
+    axios.post(`${localHost}lifeInsurance`, {
       data
     }).then(function (response) {
       localStorage.setItem("lifeFormData", JSON.stringify(response.data.message))

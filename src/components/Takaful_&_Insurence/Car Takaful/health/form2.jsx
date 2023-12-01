@@ -8,6 +8,8 @@ import ComboBox from '../AutoComp';
 import Swal from 'sweetalert2'
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import convertToWordsPKR from '../../../amountConverter';
+import localHost from '../../../../localHost';
 
 const { Option } = Select;
 const layout = {
@@ -30,7 +32,7 @@ const App = () => {
   };
   const navigate = useNavigate();
   const onFinish = (values) => {
-    axios.post('http://localhost:3000/parentsInsurance', {
+    axios.post(`${localHost}parentsInsurance`, {
       values
     }).then(function (response) {
       localStorage.setItem("FormData", JSON.stringify(response.data.message))
@@ -68,6 +70,7 @@ const App = () => {
       </Form.Item>
     }
   }
+  const [amount, setAmount] = useState()
   return (
     <div>
       <div>
@@ -133,9 +136,12 @@ const App = () => {
             type="number"
             style={{ width: '21rem' }}
             InputProps={{ inputProps: { min: 60000, max: 1000000 } }}
+            onChange={(e) => setAmount(+(e.target.value))}
             required
           />
         </Form.Item>
+        <p style={{margin: '-1.2rem 5px 0 5px', fontSize: '0.8rem', width: '21rem'}}>{amount ? 
+      (convertToWordsPKR(amount)) : null}</p>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit"
             style={{ margin: '0rem 0rem' }}

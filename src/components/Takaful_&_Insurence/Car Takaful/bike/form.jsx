@@ -9,6 +9,8 @@ import 'react-phone-input-2/lib/style.css'
 import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import convertToWordsPKR from '../../../amountConverter';
+import localHost from '../../../../localHost';
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -48,7 +50,7 @@ const App = () => {
   const navigate = useNavigate();
   const finishBtn=()=>{
    const data = {...loginDetails,...profileDetails}
-   axios.post("http://localhost:3000/PostBike", {
+   axios.post(`${localHost}PostBike`, {
     data
   }).then(function (response) {
     localStorage.setItem("FormData", JSON.stringify(response.data.message))
@@ -111,7 +113,7 @@ function LoginForm({onFinish, initialValues}){
   const [bikePrize, setBikePrize] = useState()
   const [bikeType, setBikeType]= useState([])
   useEffect(()=>{
-    const val = axios.get("http://localhost:3000/bike")
+    const val = axios.get(`${localHost}bike`)
     val.then(res=>setBikeData(res.data.message[0].bikeData))
   },[])
   let updateValue = {
@@ -143,7 +145,7 @@ function LoginForm({onFinish, initialValues}){
   const year =(bikeData[bikeTypeI]?.details[0].years)
   let years = year?.toString();
   years = years?.split(",")
-  
+  const [amount, setAmount] = useState()
   return(
     <Form
         {...layout}
@@ -174,12 +176,15 @@ function LoginForm({onFinish, initialValues}){
         style={{width:'21rem'}}
         InputProps={{ inputProps: { min: 40000, max: 1000000 } }}
         onBlur={(e)=> setBikePrize(e.target.value)}
+        onChange={(e) => setAmount(+(e.target.value))}
         required
       />
         </Form.Item>
+        <p style={{margin: '-1.2rem 5px 0 5px', fontSize: '0.8rem', width: '21rem'}}>{amount ? 
+      (convertToWordsPKR(amount)) : null}</p>
         <Form.Item {...tailLayout}>
         <Button type="primary" htmlType='submit'
-          style={{padding: '0rem 4rem', fontWeight: '600'}}
+          style={{padding: '0rem 4rem', margin:"1rem 0  0 0", fontWeight: '600'}}
           className='form-btn'
           onClick={()=> initialValues({...updateValue})}>
             Continue

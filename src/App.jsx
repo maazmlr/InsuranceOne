@@ -20,7 +20,6 @@ import { InsuranceLayout } from './components/Takaful_&_Insurence/InsuranceLayou
 import TestimonailCard from './components/Takaful_&_Insurence/TestimonailCard';
 import AutoComp from './components/Takaful_&_Insurence/Car Takaful/AutoComp';
 import { useEffect, useState } from 'react';
-import Plans from './components/Plans/plans';
 import PlansMyself from './components/Takaful_&_Insurence/Car Takaful/health/planMyself';
 import PlanParents from './components/Takaful_&_Insurence/Car Takaful/health/planParents';
 import PlansFamily from './components/Takaful_&_Insurence/Car Takaful/health/planFamily';
@@ -28,8 +27,9 @@ import CommCarPlan from './components/Takaful_&_Insurence/Car Takaful/commercial
 import PersCarPlan from './components/Takaful_&_Insurence/Car Takaful/personalPlan';
 import BikePlan from './components/Takaful_&_Insurence/Car Takaful/bike/bikePlan';
 import axios from 'axios';
-import { MyContext } from './components/myContext';
-
+import AddressForm from './Checkout/AddressForm';
+import Checkout from './Checkout/Checkout';
+import localHost from './localHost';
 
 
 
@@ -53,6 +53,7 @@ function App() {
       <Route path='/insurance/commercialCarPlan' element={<CommCarPlan />} />
       <Route path='/insurance/personalCarPlan' element={<PersCarPlan />} />
       <Route path='/insurance/bikePlan' element={<BikePlan />} />
+      <Route path='/insurance/plan/checkout/:id' element={<Checkout />} />
       <Route path='signup' element={<SignUp />} />
 
     </Route >
@@ -60,14 +61,11 @@ function App() {
   ))
 
   useEffect(() => {
-    axios.get('http://localhost:3000/')
+    axios.get(`${localHost}`)
   }, [])
   const [state, setState] = useState("");
   return (
-
       <RouterProvider router={router} />
-
-
   )
 
 }
